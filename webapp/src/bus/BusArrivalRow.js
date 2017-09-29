@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 class BusArrivalRow extends Component {
     render() {
+        const expectedInMins = Math.round(this.props.expectedIn / 60);
         return (
             <tr>
                 <td>{this.props.busNumber}</td>
-                <td>{this.props.expectedIn} secs</td>
+                <td>{expectedInMins} min(s)</td>
             </tr>
         );
     }

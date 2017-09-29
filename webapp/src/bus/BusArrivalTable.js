@@ -9,9 +9,9 @@ class BusArrivalTable extends Component {
             const busArrival = this.props.arrivals[i];
             rows.push(
                 <BusArrivalRow
-                    key={busArrival.busNumber + busArrival.expectedInSec}
-                    busNumber={busArrival.busNumber}
-                    expectedIn={busArrival.expectedInSec}
+                    key={busArrival.busNo + busArrival.expectedSeconds}
+                    busNo={busArrival.busNo}
+                    expectedSeconds={busArrival.expectedSeconds}
                 />
             );
         }

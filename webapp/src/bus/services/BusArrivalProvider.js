@@ -1,7 +1,7 @@
 import BusArrivalTime from './BusArrivalTime';
 
 class BusArrivalProvider {
-    /* eslint-disable class-methods-use-this */
+    /* eslint-disable class-methods-use-this, no-unused-vars */
     getBusArrivals(stationId, busNo) {
         return [
             new BusArrivalTime('77', 10),
@@ -10,7 +10,7 @@ class BusArrivalProvider {
             new BusArrivalTime('44', 180)
         ];
     }
-    /* eslint-enable class-methods-use-this */
+    /* eslint-enable class-methods-use-this, no-unused-vars */
 }
 
 export default BusArrivalProvider;

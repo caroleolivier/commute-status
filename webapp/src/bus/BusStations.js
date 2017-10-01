@@ -8,8 +8,9 @@ class BusStations extends Component {
         const busStations = [];
         for (let i = 0; i < this.props.busStations.length; i += 1) {
             const busStation = this.props.busStations[i];
+            const key = busStation.stationId;
             busStations.push(
-                <BusStationContainer busStation={busStation} />
+                <BusStationContainer key={key} busStation={busStation} />
             );
         }
         return (

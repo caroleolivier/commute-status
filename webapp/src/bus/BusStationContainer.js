@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import BusArrivalHeader from './BusArrivalHeader';
 import BusArrivalTable from './BusArrivalTable';
 
 import BusArrivalProvider from './services/BusArrivalProvider';
 
-class BusArrivalWrapper extends Component {
+class BusStationContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            direction: 'Earlsfield',
             busesExpectedTimes: []
         };
     }
@@ -19,7 +19,8 @@ class BusArrivalWrapper extends Component {
         /* lot of discussions around whether setState should be called here or not :s */
         /* eslint-disable react/no-did-mount-set-state */
         this.setState({
-            busesExpectedTimes: provider.getBusArrivals(this.direction)
+            busesExpectedTimes: provider.getBusArrivals(
+                this.props.busStation.stationId, this.props.busStation.buses)
         });
         /* eslint-enable react/no-did-mount-set-state */
     }
@@ -27,11 +28,23 @@ class BusArrivalWrapper extends Component {
     render() {
         return (
             <div>
-                <BusArrivalHeader direction={this.state.direction} />
+                <BusArrivalHeader
+                    stationName={this.props.busStation.stationName}
+                    direction={this.props.busStation.direction}
+                />
                 <BusArrivalTable arrivals={this.state.busesExpectedTimes} />
             </div>
         );
     }
 }
 
-export default BusArrivalWrapper;
+BusStationContainer.propTypes = {
+    busStation: PropTypes.shape({
+        stationName: PropTypes.string,
+        stationId: PropTypes.string,
+        direction: PropTypes.string,
+        buses: PropTypes.arrayOf(PropTypes.string)
+    }).isRequired
+};
+
+export default BusStationContainer;

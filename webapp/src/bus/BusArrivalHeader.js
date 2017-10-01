@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 
 class BusArrivalHeader extends Component {
     render() {
-        const direction = this.props.direction;
-
         return (
-            <div>
-                <h3>Buses towards {direction}</h3>
-            </div>
+            <h3>Station {this.props.stationName} towards {this.props.direction}</h3>
         );
     }
 }
 BusArrivalHeader.propTypes = {
+    stationName: PropTypes.string.isRequired,
     direction: PropTypes.string.isRequired
 };
 

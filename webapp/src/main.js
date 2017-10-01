@@ -3,9 +3,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import BusArrivalWrapper from './bus/BusArrivalWrapper';
+import App from './App';
 
 ReactDOM.render(
-    React.createElement(BusArrivalWrapper),
+    React.createElement(App),
     document.getElementById('mount'),
 );

@@ -4,6 +4,7 @@ exports[`rendering 1`] = `
 <div>
   <BusArrivalHeader
     direction="Earlsfield"
+    stationName="Huntspill Street"
   />
   <BusArrivalTable
     arrivals={

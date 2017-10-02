@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 import 'whatwg-fetch';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -16,7 +18,9 @@ class BusStationContainer extends Component {
     }
 
     componentDidMount() {
-        fetch(buildUrl(this.props.busStation.stationId, this.props.busStation.directionId, this.props.busStation.buses))
+        const url = buildUrl(this.props.busStation.stationId,
+            this.props.busStation.directionId, this.props.busStation.buses);
+        fetch(url)
             .then(response => response.json())
             .then((json) => {
                 const busArrivalTimes = parseBusArrival(json);

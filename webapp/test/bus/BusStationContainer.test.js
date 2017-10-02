@@ -1,8 +1,6 @@
 /* eslint-env browser, jest */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import testRenderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
@@ -16,8 +14,8 @@ describe('BusStationContainer component', () => {
             direction: 'Earlsfield',
             buses: ['77', '44', '270']
         };
-        const busStationContainer = shallow(<BusStationContainer busStation={busStation}/>);
-        let tree = toJson(busStationContainer)
+        const busStationContainer = shallow(<BusStationContainer busStation={busStation} />);
+        const tree = toJson(busStationContainer);
         expect(tree).toMatchSnapshot('rendering');
     });
 });

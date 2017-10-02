@@ -30,6 +30,7 @@
         "fetch-mock": "^5.12.2",
         "jest": "^21.1.0",
         "react-test-renderer": "^15.6.2",
+        "sinon": "^4.0.0",
         "webpack": "^3.6.0",
         "webpack-dev-server": "^2.8.2"
     },

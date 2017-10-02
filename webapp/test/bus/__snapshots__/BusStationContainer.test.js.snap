@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`error 1`] = `
+<div>
+  <BusStationHeader
+    direction="Waterloo"
+    stationName="Bla Street"
+  />
+  <p>
+    Error
+  </p>
+</div>
+`;
+
+exports[`loaded 1`] = `
+<div>
+  <BusStationHeader
+    direction="Waterloo"
+    stationName="Bla Street"
+  />
+  <BusArrivalTable
+    arrivals={
+      Array [
+        Object {
+          "lineName": "10",
+          "stationName": "Bla Street",
+          "timeToStation": 60,
+        },
+        Object {
+          "lineName": "10",
+          "stationName": "Bla Street",
+          "timeToStation": 90,
+        },
+        Object {
+          "lineName": "20",
+          "stationName": "Bla Street",
+          "timeToStation": 30,
+        },
+      ]
+    }
+  />
+</div>
+`;
+
 exports[`loading 1`] = `
 <div>
   <BusStationHeader

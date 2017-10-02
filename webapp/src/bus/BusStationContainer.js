@@ -1,5 +1,3 @@
-/* eslint-env browser */
-
 import 'whatwg-fetch';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -7,7 +5,7 @@ import PropTypes from 'prop-types';
 import BusStationHeader from './BusStationHeader';
 import BusArrivalTable from './BusArrivalTable';
 
-import { buildUrl, parseBusArrival } from './services/TfLBusDataAPIHelper';
+import TfLBusDataAPIService from './services/TfLBusDataAPIService';
 
 class BusStationContainer extends Component {
     constructor(props) {
@@ -19,16 +17,10 @@ class BusStationContainer extends Component {
     }
 
     componentDidMount() {
-        const url = buildUrl(this.props.busStation.stationId,
-            this.props.busStation.directionId, this.props.busStation.buses);
-        fetch(url)
-            .then((response) => {
-                const resp = response.json();
-                return resp;
-            })
-            .then((json) => {
-                console.log('parsing');
-                const busArrivalTimes = parseBusArrival(json);
+        const service = new TfLBusDataAPIService();
+        service.fetch(this.props.busStation.stationId,
+            this.props.busStation.directionId, this.props.busStation.buses)
+            .then((busArrivalTimes) => {
                 /* lot of discussions around whether setState should be called here or not :s */
                 /* eslint-disable react/no-did-mount-set-state */
                 this.setState({
@@ -38,7 +30,7 @@ class BusStationContainer extends Component {
                 /* eslint-enable react/no-did-mount-set-state */
             })
             .catch((ex) => {
-                console.log('parsing failed', ex);
+                console.log(ex);
                 this.setState({
                     state: 'error'
                 });
@@ -59,7 +51,6 @@ class BusStationContainer extends Component {
                 </div>
             );
         case 'loaded':
-        console.log(this.state.state)
             return (
                 <div>
                     <BusStationHeader

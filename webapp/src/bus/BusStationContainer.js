@@ -1,10 +1,11 @@
+import 'whatwg-fetch';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import BusStationHeader from './BusStationHeader';
 import BusArrivalTable from './BusArrivalTable';
 
-import BusArrivalProvider from './services/BusArrivalProvider';
+import { buildUrl, parseBusArrival } from './services/TfLBusDataAPIHelper';
 
 class BusStationContainer extends Component {
     constructor(props) {
@@ -15,14 +16,20 @@ class BusStationContainer extends Component {
     }
 
     componentDidMount() {
-        const provider = new BusArrivalProvider();
-        /* lot of discussions around whether setState should be called here or not :s */
-        /* eslint-disable react/no-did-mount-set-state */
-        this.setState({
-            busesExpectedTimes: provider.getBusArrivals(
-                this.props.busStation.stationId, this.props.busStation.buses)
-        });
-        /* eslint-enable react/no-did-mount-set-state */
+        fetch(buildUrl(this.props.busStation.stationId, this.props.busStation.directionId, this.props.busStation.buses))
+            .then(response => response.json())
+            .then((json) => {
+                const busArrivalTimes = parseBusArrival(json);
+                /* lot of discussions around whether setState should be called here or not :s */
+                /* eslint-disable react/no-did-mount-set-state */
+                this.setState({
+                    busesExpectedTimes: busArrivalTimes
+                });
+                /* eslint-enable react/no-did-mount-set-state */
+            })
+            .catch((ex) => {
+                console.log('parsing failed', ex);
+            });
     }
 
     render() {
@@ -43,6 +50,7 @@ BusStationContainer.propTypes = {
         stationName: PropTypes.string,
         stationId: PropTypes.string,
         direction: PropTypes.string,
+        directionId: PropTypes.string,
         buses: PropTypes.arrayOf(PropTypes.string)
     }).isRequired
 };

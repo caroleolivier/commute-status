@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import BusArrivalHeader from './BusArrivalHeader';
+import BusStationHeader from './BusStationHeader';
 import BusArrivalTable from './BusArrivalTable';
 
 import BusArrivalProvider from './services/BusArrivalProvider';
@@ -28,7 +28,7 @@ class BusStationContainer extends Component {
     render() {
         return (
             <div>
-                <BusArrivalHeader
+                <BusStationHeader
                     stationName={this.props.busStation.stationName}
                     direction={this.props.busStation.direction}
                 />

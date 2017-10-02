@@ -6,9 +6,9 @@ function buildUrl(stationId, directionId, buses) {
 }
 
 function parseBusArrival(json) {
-    return json.map(busArrival => {
-        const busName = busArrival['lineName'];
-        const expectedIn = busArrival['timeToStation'];
+    return json.map((busArrival) => {
+        const busName = busArrival.lineName;
+        const expectedIn = busArrival.timeToStation;
         return new BusArrivalTime(busName, expectedIn);
     }).sort((a, b) => a.expectedSeconds - b.expectedSeconds);
 }

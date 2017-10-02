@@ -1,32 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering 1`] = `
+exports[`loading 1`] = `
 <div>
-  <BusArrivalHeader
-    direction="Earlsfield"
-    stationName="Huntspill Street"
+  <BusStationHeader
+    direction="Waterloo"
+    stationName="Bla Street"
   />
-  <BusArrivalTable
-    arrivals={
-      Array [
-        BusArrivalTime {
-          "_busNo": "77",
-          "_expectedSeconds": 10,
-        },
-        BusArrivalTime {
-          "_busNo": "270",
-          "_expectedSeconds": 65,
-        },
-        BusArrivalTime {
-          "_busNo": "77",
-          "_expectedSeconds": 100,
-        },
-        BusArrivalTime {
-          "_busNo": "44",
-          "_expectedSeconds": 180,
-        },
-      ]
-    }
-  />
+  <p>
+    Loading...
+  </p>
 </div>
 `;

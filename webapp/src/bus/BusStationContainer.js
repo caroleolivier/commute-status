@@ -13,6 +13,7 @@ class BusStationContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            state: 'loading',
             busesExpectedTimes: []
         };
     }
@@ -21,31 +22,65 @@ class BusStationContainer extends Component {
         const url = buildUrl(this.props.busStation.stationId,
             this.props.busStation.directionId, this.props.busStation.buses);
         fetch(url)
-            .then(response => response.json())
+            .then((response) => {
+                const resp = response.json();
+                return resp;
+            })
             .then((json) => {
+                console.log('parsing');
                 const busArrivalTimes = parseBusArrival(json);
                 /* lot of discussions around whether setState should be called here or not :s */
                 /* eslint-disable react/no-did-mount-set-state */
                 this.setState({
-                    busesExpectedTimes: busArrivalTimes
+                    busesExpectedTimes: busArrivalTimes,
+                    state: 'loaded'
                 });
                 /* eslint-enable react/no-did-mount-set-state */
             })
             .catch((ex) => {
                 console.log('parsing failed', ex);
+                this.setState({
+                    state: 'error'
+                });
             });
     }
 
     render() {
-        return (
-            <div>
-                <BusStationHeader
-                    stationName={this.props.busStation.stationName}
-                    direction={this.props.busStation.direction}
-                />
-                <BusArrivalTable arrivals={this.state.busesExpectedTimes} />
-            </div>
-        );
+        // todo: refactor switch statement
+        switch (this.state.state) {
+        case 'loading':
+            return (
+                <div>
+                    <BusStationHeader
+                        stationName={this.props.busStation.stationName}
+                        direction={this.props.busStation.direction}
+                    />
+                    <p>Loading...</p>
+                </div>
+            );
+        case 'loaded':
+        console.log(this.state.state)
+            return (
+                <div>
+                    <BusStationHeader
+                        stationName={this.props.busStation.stationName}
+                        direction={this.props.busStation.direction}
+                    />
+                    <BusArrivalTable arrivals={this.state.busesExpectedTimes} />
+                </div>
+            );
+        case 'error':
+        default:
+            return (
+                <div>
+                    <BusStationHeader
+                        stationName={this.props.busStation.stationName}
+                        direction={this.props.busStation.direction}
+                    />
+                    <p>Error</p>
+                </div>
+            );
+        }
     }
 }
 

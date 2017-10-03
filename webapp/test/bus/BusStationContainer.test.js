@@ -6,7 +6,7 @@ import sinon from 'sinon';
 
 import TfLBusDataAPIService from '../../src/bus/services/TfLBusDataAPIService';
 
-import BusStationContainer from '../../src/bus/BusStationContainer';
+import BusStationContainer, { BusStationContainerState } from '../../src/bus/BusStationContainer';
 
 describe('BusStationContainer component', () => {
     let stubService;
@@ -40,6 +40,7 @@ describe('BusStationContainer component', () => {
         });
 
         test('it displays a loading state', () => {
+            expect(busStationContainer.instance().state.state).toEqual(BusStationContainerState.LOADING);
             const tree = toJson(busStationContainer);
             expect(tree).toMatchSnapshot('loading');
         });
@@ -61,7 +62,7 @@ describe('BusStationContainer component', () => {
                 return promise.then(() => {
                     // force wrapper to update
                     busStationContainer.update();
-                    expect(busStationContainer.instance().state.state).toEqual('loaded');
+                    expect(busStationContainer.instance().state.state).toEqual(BusStationContainerState.LOADED);
                     const tree = toJson(busStationContainer);
                     expect(tree).toMatchSnapshot('loaded');
                 });
@@ -79,7 +80,7 @@ describe('BusStationContainer component', () => {
                     .catch(() => {
                         // force wrapper to update
                         busStationContainer.update();
-                        expect(busStationContainer.instance().state.state).toEqual('error');
+                        expect(busStationContainer.instance().state.state).toEqual(BusStationContainerState.ERROR);
                         const tree = toJson(busStationContainer);
                         expect(tree).toMatchSnapshot('error');
                     });

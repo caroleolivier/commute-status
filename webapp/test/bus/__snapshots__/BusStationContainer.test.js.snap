@@ -6,9 +6,9 @@ exports[`error 1`] = `
     direction="Waterloo"
     stationName="Bla Street"
   />
-  <p>
-    Error
-  </p>
+  <ErrorMessage
+    message="Error"
+  />
 </div>
 `;
 
@@ -48,8 +48,6 @@ exports[`loading 1`] = `
     direction="Waterloo"
     stationName="Bla Street"
   />
-  <p>
-    Loading...
-  </p>
+  <Loading />
 </div>
 `;

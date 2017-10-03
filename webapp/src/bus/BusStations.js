@@ -23,7 +23,6 @@ class BusStations extends Component {
 }
 
 BusStations.propTypes = {
-    direction: PropTypes.string.isRequired,
     busStations: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 

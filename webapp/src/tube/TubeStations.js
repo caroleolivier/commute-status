@@ -23,7 +23,6 @@ class TubeStations extends Component {
 }
 
 TubeStations.propTypes = {
-    direction: PropTypes.string.isRequired,
     tubeStations: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 

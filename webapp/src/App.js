@@ -16,14 +16,8 @@ class App extends Component {
         const directionConfig = config[this.state.direction];
         return (
             <div>
-                <BusStations
-                    direction={this.state.direction}
-                    busStations={directionConfig.busStations}
-                />
-                <TubeStations
-                    direction={this.state.direction}
-                    tubeStations={directionConfig.tubeStations}
-                />
+                <BusStations busStations={directionConfig.busStations} />
+                <TubeStations tubeStations={directionConfig.tubeStations} />
             </div>
         );
     }

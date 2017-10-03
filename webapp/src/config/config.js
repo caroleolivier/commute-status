@@ -1,4 +1,4 @@
-const busConfig = {
+const config = {
     fromHome: {
         busStations: [
             {
@@ -15,11 +15,17 @@ const busConfig = {
                 directionId: 'outbound',
                 buses: ['77', '44', '270']
             }
+        ],
+        tubeStations: [
+            {
+                stationName: 'Tooting Broadway',
+                stationId: '940GZZLUTBY',
+                direction: 'Central London',
+                directionId: 'inbound',
+                lineName: 'northern'
+            }
         ]
-    },
-    toHome: {
-
     }
 };
 
-export default busConfig;
+export default config;

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import busConfig from './config/bus';
+import config from './config/config';
 
 import BusStations from './bus/BusStations';
+import TubeStations from './tube/TubeStations';
 
 class App extends Component {
     constructor(prop) {
@@ -12,12 +13,18 @@ class App extends Component {
     }
 
     render() {
-        const directionConfig = busConfig[this.state.direction];
+        const directionConfig = config[this.state.direction];
         return (
-            <BusStations
-                direction={this.state.direction}
-                busStations={directionConfig.busStations}
-            />
+            <div>
+                <BusStations
+                    direction={this.state.direction}
+                    busStations={directionConfig.busStations}
+                />
+                <TubeStations
+                    direction={this.state.direction}
+                    tubeStations={directionConfig.tubeStations}
+                />
+            </div>
         );
     }
 }

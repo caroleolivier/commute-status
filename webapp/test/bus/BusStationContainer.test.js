@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import sinon from 'sinon';
 
-import TfLBusDataAPIService from '../../src/bus/services/TfLBusDataAPIService';
+import TfLDataAPIService from '../../src/services/TfLDataAPIService';
 
 import BusStationContainer, { BusStationContainerState } from '../../src/bus/BusStationContainer';
 
@@ -26,7 +26,7 @@ describe('BusStationContainer component', () => {
         promise = new Promise((resolve, reject) => {
             fetchDataObj = { resolve, reject };
         });
-        stubService = sinon.stub(TfLBusDataAPIService.prototype, 'fetch');
+        stubService = sinon.stub(TfLDataAPIService.prototype, 'fetchArrivals');
         stubService.returns(promise);
     });
 

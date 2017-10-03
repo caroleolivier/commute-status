@@ -15,7 +15,7 @@ class BusStations extends Component {
         }
         return (
             <div>
-                <h3>Direction: {this.props.direction}</h3>
+                <h3>Buse(s)</h3>
                 {busStations}
             </div>
         );

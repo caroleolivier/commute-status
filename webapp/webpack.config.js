@@ -4,7 +4,7 @@ const path = require("path");
 module.exports = {
     context: path.join(__dirname, "src"),
     entry: [
-        "./main.js",
+        "whatwg-fetch", "./main.js",
     ],
     output: {
         path: path.join(__dirname, "www"),

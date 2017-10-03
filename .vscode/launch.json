@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Tests",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/webapp/node_modules/jest/bin/jest.js",
+            "cwd": "${workspaceRoot}/webapp",
+            "stopOnEntry": false,
+            "args": ["--runInBand"],
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "sourceMaps": false
+        }
+    ]
+}

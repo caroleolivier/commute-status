@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import config from './config/direction';
+import busConfig from './config/bus';
 
 import BusStations from './bus/BusStations';
 
@@ -12,7 +12,7 @@ class App extends Component {
     }
 
     render() {
-        const directionConfig = config[this.state.direction];
+        const directionConfig = busConfig[this.state.direction];
         return (
             <BusStations
                 direction={this.state.direction}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BusArrivalRow from './BusArrivalRow';
 
-class BusArrivalTable extends Component {
+class BusArrivalTimeTable extends Component {
     render() {
         const rows = [];
         for (let i = 0; i < this.props.arrivals.length; i += 1) {
@@ -30,8 +30,8 @@ class BusArrivalTable extends Component {
     }
 }
 
-BusArrivalTable.propTypes = {
+BusArrivalTimeTable.propTypes = {
     arrivals: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default BusArrivalTable;
+export default BusArrivalTimeTable;

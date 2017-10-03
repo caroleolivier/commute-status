@@ -15,7 +15,7 @@ const BusStationContainerState = {
     },
     ERROR: {
         id: 1,
-        getComponent: () => <ErrorMessage message="Error" />
+        getComponent: () => <ErrorMessage message="Unable to load bus data" />
     },
     LOADED: {
         id: 2,

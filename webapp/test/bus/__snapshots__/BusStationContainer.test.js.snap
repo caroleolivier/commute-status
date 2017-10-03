@@ -7,7 +7,7 @@ exports[`error 1`] = `
     stationName="Bla Street"
   />
   <ErrorMessage
-    message="Error"
+    message="Unable to load bus data"
   />
 </div>
 `;
@@ -18,7 +18,7 @@ exports[`loaded 1`] = `
     direction="Waterloo"
     stationName="Bla Street"
   />
-  <BusArrivalTable
+  <BusArrivalTimeTable
     arrivals={
       Array [
         Object {

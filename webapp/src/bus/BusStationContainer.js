@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import BusStationHeader from './BusStationHeader';
-import BusArrivalTable from './BusArrivalTable';
+import BusArrivalTimeTable from './BusArrivalTimeTable';
 import Loading from '../common/Loading';
 import ErrorMessage from '../common/ErrorMessage';
 import TfLBusDataAPIService from './services/TfLBusDataAPIService';
@@ -19,7 +19,7 @@ const BusStationContainerState = {
     },
     LOADED: {
         id: 2,
-        getComponent: container => <BusArrivalTable arrivals={container.state.busesExpectedTimes} />
+        getComponent: container => <BusArrivalTimeTable arrivals={container.state.busesExpectedTimes} />
     }
 };
 

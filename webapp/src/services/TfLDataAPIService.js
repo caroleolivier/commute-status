@@ -4,8 +4,8 @@
 import ArrivalTime from './ArrivalTime';
 
 class TfLDataAPIService {
-    fetchArrivals(stationId, directionId, buses) {
-        const url = this._buildUrl(stationId, directionId, buses);
+    fetchArrivals(stationId, directionId, lines) {
+        const url = this._buildUrl(stationId, directionId, lines);
         return fetch(url)
             .then(resp => resp.json())
             .then(json => this._parseData(json));

@@ -5,14 +5,9 @@ import BusStationContainer from './BusStationContainer';
 
 class BusStations extends Component {
     render() {
-        const busStations = [];
-        for (let i = 0; i < this.props.busStations.length; i += 1) {
-            const busStation = this.props.busStations[i];
-            const key = busStation.stationId;
-            busStations.push(
-                <BusStationContainer key={key} busStation={busStation} />
-            );
-        }
+        const busStations = this.props.busStations.map(
+            busStation => <BusStationContainer key={busStation.stationId} busStation={busStation} />
+        );
         return (
             <div>
                 <h3>Buse(s)</h3>

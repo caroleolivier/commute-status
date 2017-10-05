@@ -5,14 +5,9 @@ import TubeStationContainer from './TubeStationContainer';
 
 class TubeStations extends Component {
     render() {
-        const stations = [];
-        for (let i = 0; i < this.props.tubeStations.length; i += 1) {
-            const tubeStation = this.props.tubeStations[i];
-            const key = tubeStation.stationId;
-            stations.push(
-                <TubeStationContainer key={key} tubeStation={tubeStation} />
-            );
-        }
+        const stations = this.props.tubeStations.map(
+            station => <TubeStationContainer key={station.stationId} tubeStation={station} />
+        );
         return (
             <div>
                 <h3>Tube(s)</h3>

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import config from './config/config';
 
-import BusStations from './bus/BusStations';
-import TubeStations from './tube/TubeStations';
+import CommuteRoute from './route/CommuteRoute';
 
 class App extends Component {
     constructor(prop) {
@@ -13,11 +12,11 @@ class App extends Component {
     }
 
     render() {
-        const directionConfig = config[this.state.direction];
+        const routes = config[this.state.direction];
+        const routesComponents = routes.map(route => <CommuteRoute routeName={route.routeName} stops={route.stops} />);
         return (
             <div>
-                <BusStations busStations={directionConfig.busStations} />
-                <TubeStations tubeStations={directionConfig.tubeStations} />
+                {routesComponents}
             </div>
         );
     }

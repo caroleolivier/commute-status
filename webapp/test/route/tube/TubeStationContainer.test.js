@@ -4,9 +4,9 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import sinon from 'sinon';
 
-import TfLDataAPIService from '../../src/services/TfLDataAPIService';
+import TfLDataAPIService from '../../../src/services/TfLDataAPIService';
 
-import TubeStationContainer, { TubeStationContainerState } from '../../src/tube/TubeStationContainer';
+import TubeStationContainer, { TubeStationContainerState } from '../../../src/route/tube/TubeStationContainer';
 
 describe('TubeStationContainer component', () => {
     let stubService;
@@ -16,7 +16,7 @@ describe('TubeStationContainer component', () => {
         stationId: '1234DWWEF',
         direction: 'North',
         directionId: 'outbound',
-        lineName: 'jubilee'
+        lines: ['jubilee']
     };
     let tubeStationContainer;
     let fetchDataObj;
@@ -36,7 +36,7 @@ describe('TubeStationContainer component', () => {
 
     describe('Given component was mounted successfully', () => {
         beforeEach(() => {
-            tubeStationContainer = shallow(<TubeStationContainer tubeStation={tubeStationConfig} />);
+            tubeStationContainer = shallow(<TubeStationContainer config={tubeStationConfig} />);
         });
 
         test('it displays a loading state', () => {
@@ -45,9 +45,9 @@ describe('TubeStationContainer component', () => {
             expect(tree).toMatchSnapshot('loading');
         });
 
-        test('it should send a request to load bus expected arrivals', () => {
+        test('it should send a request to load tube expected arrivals', () => {
             expect(stubService.calledWith(tubeStationConfig.stationId,
-                tubeStationConfig.directionId, [tubeStationConfig.lineName])).toBeTruthy();
+                tubeStationConfig.directionId, tubeStationConfig.lines)).toBeTruthy();
         });
 
         describe('Given the server request was successful', () => {

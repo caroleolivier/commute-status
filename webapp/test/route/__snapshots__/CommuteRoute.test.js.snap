@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`routes 1`] = `
+<div>
+  <h2>
+    Via the Moon
+  </h2>
+  <BusStationContainer
+    config={
+      Object {
+        "direction": "Saturne",
+        "directionId": "outbound",
+        "lines": Array [
+          "L1",
+          "L2",
+        ],
+        "stationId": "490008430E",
+        "stationName": "River",
+        "type": "bus",
+      }
+    }
+    key="bus490008430E"
+  />
+  <TubeStationContainer
+    config={
+      Object {
+        "direction": "Mars",
+        "directionId": "inbound",
+        "lines": Array [
+          "N1",
+        ],
+        "stationId": "940GZZLUTBY",
+        "stationName": "Sea",
+        "type": "tube",
+      }
+    }
+    key="tube940GZZLUTBY"
+  />
+</div>
+`;

@@ -6,6 +6,7 @@ class TubeArrivalRow extends Component {
         const expectedInMins = Math.round(this.props.expectedSeconds / 60);
         return (
             <tr>
+                <td>{this.props.lineName}</td>
                 <td>{expectedInMins} min(s)</td>
             </tr>
         );
@@ -13,6 +14,7 @@ class TubeArrivalRow extends Component {
 }
 
 TubeArrivalRow.propTypes = {
+    lineName: PropTypes.string.isRequired,
     expectedSeconds: PropTypes.number.isRequired
 };
 

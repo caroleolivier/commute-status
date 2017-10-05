@@ -1,14 +1,14 @@
-const path = require("path");
+const path = require('path');
 
 // Transpiling and Bundling config
 module.exports = {
-    context: path.join(__dirname, "src"),
+    context: path.join(__dirname, 'src'),
     entry: [
-        "whatwg-fetch", "./main.js",
+        'whatwg-fetch', './main.js'
     ],
     output: {
-        path: path.join(__dirname, "www"),
-        filename: "bundle.js"
+        path: path.join(__dirname, 'www'),
+        filename: 'bundle.js'
     },
     module: {
         rules: [
@@ -16,17 +16,30 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader',
+                    loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                        }
+                    }
+                ]
             }
         ]
     },
-    resolve:{
+    resolve: {
         modules: [
-            path.join(__dirname, "node_modules"),
+            path.join(__dirname, 'node_modules')
         ]
     }
-}
+};
 
 // For local development
 module.exports.devServer = {

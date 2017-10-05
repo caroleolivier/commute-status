@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import config from './config/config';
 
+import styles from './App.css';
+
 import CommuteRoute from './route/CommuteRoute';
 
 class App extends Component {
@@ -16,7 +18,7 @@ class App extends Component {
         const routesComponents = routes.map(route =>
             <CommuteRoute key={route.routeName} routeName={route.routeName} stops={route.stops} />);
         return (
-            <div>
+            <div className={styles.App}>
                 {routesComponents}
             </div>
         );

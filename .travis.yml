@@ -3,3 +3,7 @@ node_js:
  - "node"
 before_install:
  - cd webapp
+notifications:
+ email:
+  on_success: change
+  on_failure: always

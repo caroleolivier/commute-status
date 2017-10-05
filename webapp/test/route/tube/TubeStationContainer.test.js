@@ -45,7 +45,7 @@ describe('TubeStationContainer component', () => {
             expect(tree).toMatchSnapshot('loading');
         });
 
-        test('it should send a request to load bus expected arrivals', () => {
+        test('it should send a request to load tube expected arrivals', () => {
             expect(stubService.calledWith(tubeStationConfig.stationId,
                 tubeStationConfig.directionId, tubeStationConfig.lines)).toBeTruthy();
         });

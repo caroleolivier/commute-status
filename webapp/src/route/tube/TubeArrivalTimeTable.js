@@ -10,7 +10,7 @@ class TubeArrivalTimeTable extends Component {
             rows.push(
                 <TubeArrivalRow
                     key={arrival.expectedSeconds}
-                    busNo={arrival.busNo}
+                    lineName={arrival.lineName}
                     expectedSeconds={arrival.expectedSeconds}
                 />
             );
@@ -20,6 +20,7 @@ class TubeArrivalTimeTable extends Component {
             <table>
                 <thead>
                     <tr>
+                        <th>Line</th>
                         <th>Expected</th>
                     </tr>
                 </thead>

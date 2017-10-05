@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import BusStationContainer from '../bus/BusStationContainer';
-import TubeStationContainer from '../tube/TubeStationContainer';
+import BusStationContainer from './bus/BusStationContainer';
+import TubeStationContainer from './tube/TubeStationContainer';
 
 const CommuteRouteStopType = {
     BUS: {

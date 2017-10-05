@@ -4,21 +4,21 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import sinon from 'sinon';
 
-import TfLDataAPIService from '../../src/services/TfLDataAPIService';
+import TfLDataAPIService from '../../../src/services/TfLDataAPIService';
 
-import BusStationContainer, { BusStationContainerState } from '../../src/bus/BusStationContainer';
+import TubeStationContainer, { TubeStationContainerState } from '../../../src/route/tube/TubeStationContainer';
 
-describe('BusStationContainer component', () => {
+describe('TubeStationContainer component', () => {
     let stubService;
 
-    const busStation = {
-        stationName: 'Bla Street',
-        stationId: '49030283ID',
-        direction: 'Waterloo',
+    const tubeStationConfig = {
+        stationName: 'Waterloo',
+        stationId: '1234DWWEF',
+        direction: 'North',
         directionId: 'outbound',
-        lines: ['10', 'N20']
+        lines: ['jubilee']
     };
-    let busStationContainer;
+    let tubeStationContainer;
     let fetchDataObj;
     let promise;
 
@@ -36,34 +36,34 @@ describe('BusStationContainer component', () => {
 
     describe('Given component was mounted successfully', () => {
         beforeEach(() => {
-            busStationContainer = shallow(<BusStationContainer config={busStation} />);
+            tubeStationContainer = shallow(<TubeStationContainer config={tubeStationConfig} />);
         });
 
         test('it displays a loading state', () => {
-            expect(busStationContainer.instance().state.state).toEqual(BusStationContainerState.LOADING);
-            const tree = toJson(busStationContainer);
+            expect(tubeStationContainer.instance().state.state).toEqual(TubeStationContainerState.LOADING);
+            const tree = toJson(tubeStationContainer);
             expect(tree).toMatchSnapshot('loading');
         });
 
         test('it should send a request to load bus expected arrivals', () => {
-            expect(stubService.calledWith(busStation.stationId,
-                busStation.directionId, busStation.lines)).toBeTruthy();
+            expect(stubService.calledWith(tubeStationConfig.stationId,
+                tubeStationConfig.directionId, tubeStationConfig.lines)).toBeTruthy();
         });
 
         describe('Given the server request was successful', () => {
-            test('it should load the bus expected time arrivals', () => {
-                const busArrivals = [
-                    { lineName: '10', stationName: 'Bla Street', timeToStation: 60 },
-                    { lineName: '10', stationName: 'Bla Street', timeToStation: 90 },
-                    { lineName: '20', stationName: 'Bla Street', timeToStation: 30 }
+            test('it should load the tube expected time arrivals', () => {
+                const tubeArrivals = [
+                    { lineName: '10', stationName: 'Waterloo', timeToStation: 60 },
+                    { lineName: '10', stationName: 'Waterloo', timeToStation: 90 },
+                    { lineName: '20', stationName: 'Waterloo', timeToStation: 30 }
                 ];
-                fetchDataObj.resolve(busArrivals);
+                fetchDataObj.resolve(tubeArrivals);
 
                 return promise.then(() => {
                     // force wrapper to update
-                    busStationContainer.update();
-                    expect(busStationContainer.instance().state.state).toEqual(BusStationContainerState.LOADED);
-                    const tree = toJson(busStationContainer);
+                    tubeStationContainer.update();
+                    expect(tubeStationContainer.instance().state.state).toEqual(TubeStationContainerState.LOADED);
+                    const tree = toJson(tubeStationContainer);
                     expect(tree).toMatchSnapshot('loaded');
                 });
             });
@@ -79,9 +79,9 @@ describe('BusStationContainer component', () => {
                     })
                     .catch(() => {
                         // force wrapper to update
-                        busStationContainer.update();
-                        expect(busStationContainer.instance().state.state).toEqual(BusStationContainerState.ERROR);
-                        const tree = toJson(busStationContainer);
+                        tubeStationContainer.update();
+                        expect(tubeStationContainer.instance().state.state).toEqual(TubeStationContainerState.ERROR);
+                        const tree = toJson(tubeStationContainer);
                         expect(tree).toMatchSnapshot('error');
                     });
             });

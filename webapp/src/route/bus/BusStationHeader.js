@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './styles.scss';
+
 class BusStationHeader extends Component {
     render() {
         return (
-            <h3>Station {this.props.stationName} towards {this.props.direction}</h3>
+            <div>
+                <i className={`fa fa-bus ${styles.busIcon}`} />
+                <h3>{this.props.stationName} (towards {this.props.direction})</h3>
+            </div>
         );
     }
 }

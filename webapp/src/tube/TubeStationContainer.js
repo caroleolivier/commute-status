@@ -2,53 +2,53 @@ import 'whatwg-fetch';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import BusStationHeader from './BusStationHeader';
-import BusArrivalTimeTable from './BusArrivalTimeTable';
+import TubeStationHeader from './TubeStationHeader';
+import TubeArrivalTimeTable from './TubeArrivalTimeTable';
 import Loading from '../common/Loading';
 import ErrorMessage from '../common/ErrorMessage';
-import TfLDataAPIService from '../services/TfLDataAPIService';
+import TfLBusDataAPIService from '../services/TfLDataAPIService';
 
-const BusStationContainerState = {
+const TubeStationContainerState = {
     LOADING: {
         id: 0,
         getComponent: () => <Loading />
     },
     ERROR: {
         id: 1,
-        getComponent: () => <ErrorMessage message="Unable to load bus data" />
+        getComponent: () => <ErrorMessage message="Unable to load tube data" />
     },
     LOADED: {
         id: 2,
-        getComponent: container => <BusArrivalTimeTable arrivals={container.state.busesExpectedTimes} />
+        getComponent: container => <TubeArrivalTimeTable arrivals={container.state.expectedTimes} />
     }
 };
 
-class BusStationContainer extends Component {
+class TubeStationContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            state: BusStationContainerState.LOADING,
-            busesExpectedTimes: []
+            state: TubeStationContainerState.LOADING,
+            expectedTimes: []
         };
     }
 
     componentDidMount() {
-        const service = new TfLDataAPIService();
-        service.fetchArrivals(this.props.busStation.stationId,
-            this.props.busStation.directionId, this.props.busStation.buses)
+        const service = new TfLBusDataAPIService();
+        service.fetchArrivals(this.props.tubeStation.stationId,
+            this.props.tubeStation.directionId, [this.props.tubeStation.lineName])
             .then((busArrivalTimes) => {
                 /* lot of discussions around whether setState should be called here or not :s */
                 /* eslint-disable react/no-did-mount-set-state */
                 this.setState({
-                    busesExpectedTimes: busArrivalTimes,
-                    state: BusStationContainerState.LOADED
+                    expectedTimes: busArrivalTimes,
+                    state: TubeStationContainerState.LOADED
                 });
                 /* eslint-enable react/no-did-mount-set-state */
             })
             .catch((ex) => {
                 console.log(ex);
                 this.setState({
-                    state: BusStationContainerState.ERROR
+                    state: TubeStationContainerState.ERROR
                 });
             });
     }
@@ -56,9 +56,9 @@ class BusStationContainer extends Component {
     render() {
         return (
             <div>
-                <BusStationHeader
-                    stationName={this.props.busStation.stationName}
-                    direction={this.props.busStation.direction}
+                <TubeStationHeader
+                    stationName={this.props.tubeStation.stationName}
+                    direction={this.props.tubeStation.direction}
                 />
                 {this.state.state.getComponent(this)}
             </div>
@@ -66,16 +66,16 @@ class BusStationContainer extends Component {
     }
 }
 
-BusStationContainer.propTypes = {
-    busStation: PropTypes.shape({
+TubeStationContainer.propTypes = {
+    tubeStation: PropTypes.shape({
         stationName: PropTypes.string,
         stationId: PropTypes.string,
         direction: PropTypes.string,
         directionId: PropTypes.string,
-        buses: PropTypes.arrayOf(PropTypes.string)
+        lineName: PropTypes.string
     }).isRequired
 };
 
-export default BusStationContainer;
+export default TubeStationContainer;
 
-export { BusStationContainerState };
+export { TubeStationContainerState };

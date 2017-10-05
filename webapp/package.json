@@ -8,6 +8,7 @@
         "prebuild": "eslint src/",
         "build": "webpack",
         "serve": "webpack-dev-server",
+        "pretest": "eslint test/",
         "test": "jest"
     },
     "keywords": [],

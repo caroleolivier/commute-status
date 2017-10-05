@@ -12,7 +12,7 @@ describe('BusStations component', () => {
             { stationName: 'Houston', stationId: '12345', direction: 'Outter Space', buses: ['1', '2'] },
             { stationName: 'Moon', stationId: '8372hf8', direction: 'Saturne', buses: ['N12'] }
         ];
-        const busStationContainer = shallow(<BusStations direction="Neptune" busStations={busStations} />);
+        const busStationContainer = shallow(<BusStations busStations={busStations} />);
         const tree = toJson(busStationContainer);
         expect(tree).toMatchSnapshot('rendering');
     });

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`error 1`] = `
+<div>
+  <TubeStationHeader
+    direction="North"
+    stationName="Waterloo"
+  />
+  <ErrorMessage
+    message="Unable to load tube data"
+  />
+</div>
+`;
+
+exports[`loaded 1`] = `
+<div>
+  <TubeStationHeader
+    direction="North"
+    stationName="Waterloo"
+  />
+  <TubeArrivalTimeTable
+    arrivals={
+      Array [
+        Object {
+          "lineName": "10",
+          "stationName": "Waterloo",
+          "timeToStation": 60,
+        },
+        Object {
+          "lineName": "10",
+          "stationName": "Waterloo",
+          "timeToStation": 90,
+        },
+        Object {
+          "lineName": "20",
+          "stationName": "Waterloo",
+          "timeToStation": 30,
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`loading 1`] = `
+<div>
+  <TubeStationHeader
+    direction="North"
+    stationName="Waterloo"
+  />
+  <Loading />
+</div>
+`;

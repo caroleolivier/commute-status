@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import BusArrivalRow from './BusArrivalRow';
+import TubeArrivalRow from './TubeArrivalRow';
 
-class BusArrivalTimeTable extends Component {
+class TubeArrivalTimeTable extends Component {
     render() {
         const rows = [];
         for (let i = 0; i < this.props.arrivals.length; i += 1) {
-            const busArrival = this.props.arrivals[i];
+            const arrival = this.props.arrivals[i];
             rows.push(
-                <BusArrivalRow
-                    key={busArrival.lineName + busArrival.expectedSeconds}
-                    busNo={busArrival.lineName}
-                    destination={busArrival.destinationName}
-                    expectedSeconds={busArrival.expectedSeconds}
+                <TubeArrivalRow
+                    key={arrival.expectedSeconds}
+                    busNo={arrival.busNo}
+                    expectedSeconds={arrival.expectedSeconds}
                 />
             );
         }
@@ -21,8 +20,6 @@ class BusArrivalTimeTable extends Component {
             <table>
                 <thead>
                     <tr>
-                        <th>Bus</th>
-                        <th>To</th>
                         <th>Expected</th>
                     </tr>
                 </thead>
@@ -32,8 +29,8 @@ class BusArrivalTimeTable extends Component {
     }
 }
 
-BusArrivalTimeTable.propTypes = {
+TubeArrivalTimeTable.propTypes = {
     arrivals: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default BusArrivalTimeTable;
+export default TubeArrivalTimeTable;

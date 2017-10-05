@@ -13,7 +13,8 @@ class App extends Component {
 
     render() {
         const routes = config[this.state.direction];
-        const routesComponents = routes.map(route => <CommuteRoute routeName={route.routeName} stops={route.stops} />);
+        const routesComponents = routes.map(route =>
+            <CommuteRoute key={route.routeName} routeName={route.routeName} stops={route.stops} />);
         return (
             <div>
                 {routesComponents}

@@ -1,0 +1,13 @@
+@import '../assets/color-scheme';
+
+.header {
+    background: $header;
+    color: white;
+    height: 4rem;
+}
+
+.title {
+    margin: auto;
+    width: 10em;
+    line-height: 4rem;
+}

@@ -1,0 +1,7 @@
+@import '../assets/color-scheme.scss';
+
+.App {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: $background;
+}

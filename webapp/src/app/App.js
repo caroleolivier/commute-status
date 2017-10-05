@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import config from './config/config';
+import config from '../config/config';
 
-import styles from './App.css';
+import styles from './App.scss';
 
-import CommuteRoute from './route/CommuteRoute';
+import Header from './Header';
+import CommuteRoute from '../route/CommuteRoute';
 
 class App extends Component {
     constructor(prop) {
@@ -19,6 +20,7 @@ class App extends Component {
             <CommuteRoute key={route.routeName} routeName={route.routeName} stops={route.stops} />);
         return (
             <div className={styles.App}>
+                <Header direction={this.state.direction} />
                 {routesComponents}
             </div>
         );

@@ -6,10 +6,10 @@ import TubeStationContainer from './tube/TubeStationContainer';
 
 const CommuteRouteStopType = {
     BUS: {
-        getComponent: stopConfig => <BusStationContainer config={stopConfig} />
+        getComponent: stopConfig => <BusStationContainer key={`bus${stopConfig.stationId}`} config={stopConfig} />
     },
     TUBE: {
-        getComponent: stopConfig => <TubeStationContainer config={stopConfig} />
+        getComponent: stopConfig => <TubeStationContainer key={`tube${stopConfig.stationId}`} config={stopConfig} />
     }
 };
 

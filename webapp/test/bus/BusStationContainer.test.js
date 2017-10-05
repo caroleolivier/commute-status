@@ -16,7 +16,7 @@ describe('BusStationContainer component', () => {
         stationId: '49030283ID',
         direction: 'Waterloo',
         directionId: 'outbound',
-        buses: ['10', 'N20']
+        lines: ['10', 'N20']
     };
     let busStationContainer;
     let fetchDataObj;
@@ -36,7 +36,7 @@ describe('BusStationContainer component', () => {
 
     describe('Given component was mounted successfully', () => {
         beforeEach(() => {
-            busStationContainer = shallow(<BusStationContainer busStation={busStation} />);
+            busStationContainer = shallow(<BusStationContainer config={busStation} />);
         });
 
         test('it displays a loading state', () => {
@@ -47,7 +47,7 @@ describe('BusStationContainer component', () => {
 
         test('it should send a request to load bus expected arrivals', () => {
             expect(stubService.calledWith(busStation.stationId,
-                busStation.directionId, busStation.buses)).toBeTruthy();
+                busStation.directionId, busStation.lines)).toBeTruthy();
         });
 
         describe('Given the server request was successful', () => {

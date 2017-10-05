@@ -34,8 +34,8 @@ class TubeStationContainer extends Component {
 
     componentDidMount() {
         const service = new TfLBusDataAPIService();
-        service.fetchArrivals(this.props.tubeStation.stationId,
-            this.props.tubeStation.directionId, [this.props.tubeStation.lineName])
+        service.fetchArrivals(this.props.config.stationId,
+            this.props.config.directionId, this.props.config.lines)
             .then((busArrivalTimes) => {
                 /* lot of discussions around whether setState should be called here or not :s */
                 /* eslint-disable react/no-did-mount-set-state */
@@ -57,8 +57,8 @@ class TubeStationContainer extends Component {
         return (
             <div>
                 <TubeStationHeader
-                    stationName={this.props.tubeStation.stationName}
-                    direction={this.props.tubeStation.direction}
+                    stationName={this.props.config.stationName}
+                    direction={this.props.config.direction}
                 />
                 {this.state.state.getComponent(this)}
             </div>
@@ -67,12 +67,12 @@ class TubeStationContainer extends Component {
 }
 
 TubeStationContainer.propTypes = {
-    tubeStation: PropTypes.shape({
+    config: PropTypes.shape({
         stationName: PropTypes.string,
         stationId: PropTypes.string,
         direction: PropTypes.string,
         directionId: PropTypes.string,
-        lineName: PropTypes.string
+        lines: PropTypes.arrayOf(PropTypes.string)
     }).isRequired
 };
 

@@ -34,8 +34,8 @@ class BusStationContainer extends Component {
 
     componentDidMount() {
         const service = new TfLDataAPIService();
-        service.fetchArrivals(this.props.busStation.stationId,
-            this.props.busStation.directionId, this.props.busStation.buses)
+        service.fetchArrivals(this.props.config.stationId,
+            this.props.config.directionId, this.props.config.lines)
             .then((busArrivalTimes) => {
                 /* lot of discussions around whether setState should be called here or not :s */
                 /* eslint-disable react/no-did-mount-set-state */
@@ -57,8 +57,8 @@ class BusStationContainer extends Component {
         return (
             <div>
                 <BusStationHeader
-                    stationName={this.props.busStation.stationName}
-                    direction={this.props.busStation.direction}
+                    stationName={this.props.config.stationName}
+                    direction={this.props.config.direction}
                 />
                 {this.state.state.getComponent(this)}
             </div>
@@ -67,12 +67,12 @@ class BusStationContainer extends Component {
 }
 
 BusStationContainer.propTypes = {
-    busStation: PropTypes.shape({
+    config: PropTypes.shape({
         stationName: PropTypes.string,
         stationId: PropTypes.string,
         direction: PropTypes.string,
         directionId: PropTypes.string,
-        buses: PropTypes.arrayOf(PropTypes.string)
+        lines: PropTypes.arrayOf(PropTypes.string)
     }).isRequired
 };
 

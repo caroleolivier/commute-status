@@ -7,9 +7,10 @@ class TubeArrivalTimeTable extends Component {
         const rows = [];
         for (let i = 0; i < this.props.arrivals.length; i += 1) {
             const arrival = this.props.arrivals[i];
+            const key = `${arrival.expectedSeconds}${arrival.lineName}`;
             rows.push(
                 <TubeArrivalRow
-                    key={arrival.expectedSeconds}
+                    key={key}
                     lineName={arrival.lineName}
                     expectedSeconds={arrival.expectedSeconds}
                 />

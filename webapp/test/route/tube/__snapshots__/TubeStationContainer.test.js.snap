@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`error 1`] = `
-<div>
+<div
+  className="container"
+>
   <TubeStationHeader
     direction="North"
     stationName="Waterloo"
@@ -13,7 +15,9 @@ exports[`error 1`] = `
 `;
 
 exports[`loaded 1`] = `
-<div>
+<div
+  className="container"
+>
   <TubeStationHeader
     direction="North"
     stationName="Waterloo"
@@ -43,7 +47,9 @@ exports[`loaded 1`] = `
 `;
 
 exports[`loading 1`] = `
-<div>
+<div
+  className="container"
+>
   <TubeStationHeader
     direction="North"
     stationName="Waterloo"

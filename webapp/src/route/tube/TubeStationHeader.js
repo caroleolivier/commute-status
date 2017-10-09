@@ -6,7 +6,7 @@ import styles from './styles.scss';
 class TubeStationHeader extends Component {
     render() {
         return (
-            <div className="horizontalContainer">
+            <div className={`horizontalContainer ${styles.header}`}>
                 <i className={`fa fa-subway ${styles.tubeIcon}`} />
                 <h3>{this.props.stationName} towards {this.props.direction}</h3>
             </div>

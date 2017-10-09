@@ -8,6 +8,8 @@ import Loading from '../common/Loading';
 import ErrorMessage from '../common/ErrorMessage';
 import TfLDataAPIService from '../../services/TfLDataAPIService';
 
+import styles from './styles.scss';
+
 const BusStationContainerState = {
     LOADING: {
         id: 0,
@@ -55,7 +57,7 @@ class BusStationContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.container}>
                 <BusStationHeader
                     stationName={this.props.config.stationName}
                     direction={this.props.config.direction}

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import BusStationContainer from './bus/BusStationContainer';
 import TubeStationContainer from './tube/TubeStationContainer';
 
+import styles from './styles.scss';
+
 const CommuteRouteStopType = {
     BUS: {
         getComponent: stopConfig => ({
@@ -24,7 +26,7 @@ class CommuteRoute extends Component {
         const stops = this.props.stops.map(stopConfig =>
             CommuteRouteStopType[stopConfig.type.toUpperCase()].getComponent(stopConfig));
         return (
-            <div>
+            <div className={styles.commuteRoute}>
                 <h2>{this.props.routeName}</h2>
                 <div className="horizontalContainer">
                     {stops.map(stop => <div key={stop.key}>{stop.component}</div>)}

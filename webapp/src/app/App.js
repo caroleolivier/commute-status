@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import config from './config/config';
+import config from '../config/config';
 
-import CommuteRoute from './route/CommuteRoute';
+import styles from './App.scss';
+
+import Header from './Header';
+import CommuteRoute from '../route/CommuteRoute';
 
 class App extends Component {
     constructor(prop) {
@@ -16,8 +19,11 @@ class App extends Component {
         const routesComponents = routes.map(route =>
             <CommuteRoute key={route.routeName} routeName={route.routeName} stops={route.stops} />);
         return (
-            <div>
-                {routesComponents}
+            <div className={styles.App}>
+                <Header direction={this.state.direction} />
+                <div>
+                    {routesComponents}
+                </div>
             </div>
         );
     }

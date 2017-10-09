@@ -1,39 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`error 1`] = `
-<div>
-  <BusStationHeader
-    direction="Waterloo"
-    stationName="Bla Street"
+<div
+  className="container"
+>
+  <StationHeader
+    name="Waterloo"
+    type="bus"
   />
   <ErrorMessage
-    message="Unable to load bus data"
+    message="Unable to load data"
   />
 </div>
 `;
 
 exports[`loaded 1`] = `
-<div>
-  <BusStationHeader
-    direction="Waterloo"
-    stationName="Bla Street"
+<div
+  className="container"
+>
+  <StationHeader
+    name="Waterloo"
+    type="bus"
   />
-  <BusArrivalTimeTable
+  <ArrivalTimeTable
     arrivals={
       Array [
         Object {
           "lineName": "10",
-          "stationName": "Bla Street",
+          "stationName": "Waterloo",
           "timeToStation": 60,
         },
         Object {
           "lineName": "10",
-          "stationName": "Bla Street",
+          "stationName": "Waterloo",
           "timeToStation": 90,
         },
         Object {
           "lineName": "20",
-          "stationName": "Bla Street",
+          "stationName": "Waterloo",
           "timeToStation": 30,
         },
       ]
@@ -43,10 +47,12 @@ exports[`loaded 1`] = `
 `;
 
 exports[`loading 1`] = `
-<div>
-  <BusStationHeader
-    direction="Waterloo"
-    stationName="Bla Street"
+<div
+  className="container"
+>
+  <StationHeader
+    name="Waterloo"
+    type="bus"
   />
   <Loading />
 </div>

@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import BusStationContainer from './bus/BusStationContainer';
-import TubeStationContainer from './tube/TubeStationContainer';
+import StationContainer from './station/StationContainer';
 
-const CommuteRouteStopType = {
-    BUS: {
-        getComponent: stopConfig => <BusStationContainer key={`bus${stopConfig.stationId}`} config={stopConfig} />
-    },
-    TUBE: {
-        getComponent: stopConfig => <TubeStationContainer key={`tube${stopConfig.stationId}`} config={stopConfig} />
-    }
-};
+import styles from './styles.scss';
+
 
 class CommuteRoute extends Component {
     render() {
-        const stops = this.props.stops.map(stopConfig =>
-            CommuteRouteStopType[stopConfig.type.toUpperCase()].getComponent(stopConfig));
         return (
-            <div>
+            <div className={styles.commuteRoute}>
                 <h2>{this.props.routeName}</h2>
-                {stops}
+                <div className="horizontalContainer">
+                    {this.props.stops.map(stopConfig => <StationContainer key={stopConfig.stationId} config={stopConfig} />)}
+                </div>
             </div>
         );
     }

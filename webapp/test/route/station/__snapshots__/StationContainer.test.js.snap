@@ -4,12 +4,12 @@ exports[`error 1`] = `
 <div
   className="container"
 >
-  <TubeStationHeader
-    direction="North"
-    stationName="Waterloo"
+  <StationHeader
+    name="Waterloo"
+    type="bus"
   />
   <ErrorMessage
-    message="Unable to load tube data"
+    message="Unable to load data"
   />
 </div>
 `;
@@ -18,11 +18,11 @@ exports[`loaded 1`] = `
 <div
   className="container"
 >
-  <TubeStationHeader
-    direction="North"
-    stationName="Waterloo"
+  <StationHeader
+    name="Waterloo"
+    type="bus"
   />
-  <TubeArrivalTimeTable
+  <ArrivalTimeTable
     arrivals={
       Array [
         Object {
@@ -50,9 +50,9 @@ exports[`loading 1`] = `
 <div
   className="container"
 >
-  <TubeStationHeader
-    direction="North"
-    stationName="Waterloo"
+  <StationHeader
+    name="Waterloo"
+    type="bus"
   />
   <Loading />
 </div>

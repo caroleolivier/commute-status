@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TubeArrivalRow from './TubeArrivalRow';
+import ArrivalRow from './ArrivalRow';
 
-class TubeArrivalTimeTable extends Component {
+import styles from './styles.scss';
+
+class ArrivalTimeTable extends Component {
     render() {
         const rows = [];
         for (let i = 0; i < this.props.arrivals.length; i += 1) {
             const arrival = this.props.arrivals[i];
             const key = `${arrival.expectedSeconds}${arrival.lineName}`;
             rows.push(
-                <TubeArrivalRow
+                <ArrivalRow
                     key={key}
                     lineName={arrival.lineName}
                     expectedSeconds={arrival.expectedSeconds}
@@ -18,11 +20,11 @@ class TubeArrivalTimeTable extends Component {
         }
 
         return (
-            <table>
+            <table className={styles.arrivalTable}>
                 <thead>
                     <tr>
-                        <th>Line</th>
-                        <th>Expected</th>
+                        <th className={styles.lineHeader} />
+                        <th className={styles.arrivalTimeHeader} />
                     </tr>
                 </thead>
                 <tbody>{rows}</tbody>
@@ -31,8 +33,8 @@ class TubeArrivalTimeTable extends Component {
     }
 }
 
-TubeArrivalTimeTable.propTypes = {
+ArrivalTimeTable.propTypes = {
     arrivals: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default TubeArrivalTimeTable;
+export default ArrivalTimeTable;

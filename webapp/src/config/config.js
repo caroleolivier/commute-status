@@ -31,9 +31,24 @@ const config = {
                     direction: 'Earlsfield',
                     directionId: 'inbound',
                     lines: ['77', '44', '270']
+                },
+                // {
+                //     type: 'train',
+                //     stationName: 'Earlsfield',
+                //     stationId: '',
+                //     direction: '',
+                //     directionId: '',
+                //     lines: ['']
+                // },
+                {
+                    type: 'tube',
+                    stationName: 'Waterloo',
+                    stationId: '940GZZLUWLO',
+                    direction: 'Bank',
+                    directionId: 'outbound',
+                    lines: ['waterloo-city']
                 }
             ]
-
         }
     ]
 };

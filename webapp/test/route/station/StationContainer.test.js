@@ -6,19 +6,20 @@ import sinon from 'sinon';
 
 import TfLDataAPIService from '../../../src/services/TfLDataAPIService';
 
-import TubeStationContainer, { TubeStationContainerState } from '../../../src/route/tube/TubeStationContainer';
+import StationContainer, { StationContainerState } from '../../../src/route/station/StationContainer';
 
-describe('TubeStationContainer component', () => {
+describe('StationContainer component', () => {
     let stubService;
 
-    const tubeStationConfig = {
+    const stationConfig = {
+        type: 'bus',
         stationName: 'Waterloo',
         stationId: '1234DWWEF',
         direction: 'North',
         directionId: 'outbound',
         lines: ['jubilee']
     };
-    let tubeStationContainer;
+    let stationContainer;
     let fetchDataObj;
     let promise;
 
@@ -36,34 +37,34 @@ describe('TubeStationContainer component', () => {
 
     describe('Given component was mounted successfully', () => {
         beforeEach(() => {
-            tubeStationContainer = shallow(<TubeStationContainer config={tubeStationConfig} />);
+            stationContainer = shallow(<StationContainer config={stationConfig} />);
         });
 
         test('it displays a loading state', () => {
-            expect(tubeStationContainer.instance().state.state).toEqual(TubeStationContainerState.LOADING);
-            const tree = toJson(tubeStationContainer);
+            expect(stationContainer.instance().state.state).toEqual(StationContainerState.LOADING);
+            const tree = toJson(stationContainer);
             expect(tree).toMatchSnapshot('loading');
         });
 
-        test('it should send a request to load tube expected arrivals', () => {
-            expect(stubService.calledWith(tubeStationConfig.stationId,
-                tubeStationConfig.directionId, tubeStationConfig.lines)).toBeTruthy();
+        test('it should send a request to load expected arrivals', () => {
+            expect(stubService.calledWith(stationConfig.stationId,
+                stationConfig.directionId, stationConfig.lines)).toBeTruthy();
         });
 
         describe('Given the server request was successful', () => {
-            test('it should load the tube expected time arrivals', () => {
-                const tubeArrivals = [
+            test('it should load the expected time arrivals', () => {
+                const arrivals = [
                     { lineName: '10', stationName: 'Waterloo', timeToStation: 60 },
                     { lineName: '10', stationName: 'Waterloo', timeToStation: 90 },
                     { lineName: '20', stationName: 'Waterloo', timeToStation: 30 }
                 ];
-                fetchDataObj.resolve(tubeArrivals);
+                fetchDataObj.resolve(arrivals);
 
                 return promise.then(() => {
                     // force wrapper to update
-                    tubeStationContainer.update();
-                    expect(tubeStationContainer.instance().state.state).toEqual(TubeStationContainerState.LOADED);
-                    const tree = toJson(tubeStationContainer);
+                    stationContainer.update();
+                    expect(stationContainer.instance().state.state).toEqual(StationContainerState.LOADED);
+                    const tree = toJson(stationContainer);
                     expect(tree).toMatchSnapshot('loaded');
                 });
             });
@@ -79,9 +80,9 @@ describe('TubeStationContainer component', () => {
                     })
                     .catch(() => {
                         // force wrapper to update
-                        tubeStationContainer.update();
-                        expect(tubeStationContainer.instance().state.state).toEqual(TubeStationContainerState.ERROR);
-                        const tree = toJson(tubeStationContainer);
+                        stationContainer.update();
+                        expect(stationContainer.instance().state.state).toEqual(StationContainerState.ERROR);
+                        const tree = toJson(stationContainer);
                         expect(tree).toMatchSnapshot('error');
                     });
             });

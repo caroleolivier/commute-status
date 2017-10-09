@@ -10,43 +10,37 @@ exports[`routes 1`] = `
   <div
     className="horizontalContainer"
   >
-    <div
-      key="bus490008430E"
-    >
-      <BusStationContainer
-        config={
-          Object {
-            "direction": "Saturne",
-            "directionId": "outbound",
-            "lines": Array [
-              "L1",
-              "L2",
-            ],
-            "stationId": "490008430E",
-            "stationName": "River",
-            "type": "bus",
-          }
+    <StationContainer
+      config={
+        Object {
+          "direction": "Saturne",
+          "directionId": "outbound",
+          "lines": Array [
+            "L1",
+            "L2",
+          ],
+          "stationId": "490008430E",
+          "stationName": "River",
+          "type": "bus",
         }
-      />
-    </div>
-    <div
-      key="tube940GZZLUTBY"
-    >
-      <TubeStationContainer
-        config={
-          Object {
-            "direction": "Mars",
-            "directionId": "inbound",
-            "lines": Array [
-              "N1",
-            ],
-            "stationId": "940GZZLUTBY",
-            "stationName": "Sea",
-            "type": "tube",
-          }
+      }
+      key="490008430E"
+    />
+    <StationContainer
+      config={
+        Object {
+          "direction": "Mars",
+          "directionId": "inbound",
+          "lines": Array [
+            "N1",
+          ],
+          "stationId": "940GZZLUTBY",
+          "stationName": "Sea",
+          "type": "tube",
         }
-      />
-    </div>
+      }
+      key="940GZZLUTBY"
+    />
   </div>
 </div>
 `;

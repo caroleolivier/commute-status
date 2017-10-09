@@ -6,9 +6,9 @@ import styles from './styles.scss';
 class TubeStationHeader extends Component {
     render() {
         return (
-            <div>
+            <div className="horizontalContainer">
                 <i className={`fa fa-subway ${styles.tubeIcon}`} />
-                <h3>Tube Station {this.props.stationName} towards {this.props.direction}</h3>
+                <h3>{this.props.stationName} towards {this.props.direction}</h3>
             </div>
         );
     }

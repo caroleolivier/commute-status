@@ -6,7 +6,7 @@ import styles from './styles.scss';
 class BusStationHeader extends Component {
     render() {
         return (
-            <div>
+            <div className="horizontalContainer">
                 <i className={`fa fa-bus ${styles.busIcon}`} />
                 <h3>{this.props.stationName} (towards {this.props.direction})</h3>
             </div>

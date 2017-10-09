@@ -21,7 +21,9 @@ class App extends Component {
         return (
             <div className={styles.App}>
                 <Header direction={this.state.direction} />
-                {routesComponents}
+                <div>
+                    {routesComponents}
+                </div>
             </div>
         );
     }

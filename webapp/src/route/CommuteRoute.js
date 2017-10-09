@@ -6,10 +6,16 @@ import TubeStationContainer from './tube/TubeStationContainer';
 
 const CommuteRouteStopType = {
     BUS: {
-        getComponent: stopConfig => <BusStationContainer key={`bus${stopConfig.stationId}`} config={stopConfig} />
+        getComponent: stopConfig => ({
+            key: `bus${stopConfig.stationId}`,
+            component: <BusStationContainer config={stopConfig} />
+        })
     },
     TUBE: {
-        getComponent: stopConfig => <TubeStationContainer key={`tube${stopConfig.stationId}`} config={stopConfig} />
+        getComponent: stopConfig => ({
+            key: `tube${stopConfig.stationId}`,
+            component: <TubeStationContainer config={stopConfig} />
+        })
     }
 };
 
@@ -20,7 +26,9 @@ class CommuteRoute extends Component {
         return (
             <div>
                 <h2>{this.props.routeName}</h2>
-                {stops}
+                <div className="horizontalContainer">
+                    {stops.map(stop => <div key={stop.key}>{stop.component}</div>)}
+                </div>
             </div>
         );
     }

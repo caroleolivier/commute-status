@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Transpiling and Bundling config
 module.exports = {
@@ -39,6 +40,11 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
+    ],
     resolve: {
         modules: [
             path.join(__dirname, 'node_modules')

@@ -55,7 +55,7 @@ module.exports = {
 // For local development
 module.exports.devServer = {
     contentBase: './www',
-    port: 9000
+    port: 9001
 };
 
 module.exports.devtool = 'inline-source-map';

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import StationHeader from './StationHeader';
 import ArrivalTimeTable from './ArrivalTimeTable';
-import Loading from '../common/Loading';
-import ErrorMessage from '../common/ErrorMessage';
+import Loading from '../../common/Loading';
+import ErrorMessage from '../../common/ErrorMessage';
 import TfLDataAPIService from '../../services/TfLDataAPIService';
 
 import styles from './styles.scss';

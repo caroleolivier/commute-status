@@ -2,9 +2,9 @@
 {
     public sealed class ArrivalTime
     {
-        public ArrivalTime(string atStation, string destinationCode, string lineName, int expectedSecs, string expectedTime)
+        public ArrivalTime(string atStationCode, string destinationCode, string lineName, int expectedSecs, string expectedTime)
         {
-            AtStation = atStation;
+            AtStationCode = atStationCode;
             DestinationCode = destinationCode;
             LineName = lineName;
             ExpectedSecs = expectedSecs;
@@ -14,7 +14,7 @@
         /// <summary>
         /// Station code we are interested in.
         /// </summary>
-        public string AtStation { get; }
+        public string AtStationCode { get; }
 
         /// <summary>
         /// Final destination code.

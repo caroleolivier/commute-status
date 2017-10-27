@@ -35,10 +35,9 @@ const config = {
                 {
                     type: 'train',
                     stationName: 'Earlsfield',
-                    stationId: '',
-                    direction: '',
-                    directionId: '',
-                    lines: ['']
+                    stationId: 'EAD',
+                    destinationId: 'WAT',
+                    filterDirection: 'to'
                 },
                 {
                     type: 'tube',

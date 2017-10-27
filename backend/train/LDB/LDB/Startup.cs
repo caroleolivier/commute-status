@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,6 +25,10 @@ namespace LDB
         {
             services.AddOptions();
             services.Configure<OpenLDBServiceConfig>(Configuration.GetSection("OpenLDBService"));
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin());
+            });
             services.AddMvc();
         }
 

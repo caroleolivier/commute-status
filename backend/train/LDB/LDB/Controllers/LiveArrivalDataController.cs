@@ -1,6 +1,7 @@
 ﻿using LDB.Helper;
 using LDB.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.Extensions.Options;
 using OpenLDBWS;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace LDB.Controllers
 {
     [Route(template: "api/live/arrivals")]
+    [EnableCors("AllowAllOrigins")]
     public class LiveArrivalDataController : Controller
     {
         private readonly OpenLDBServiceConfig _serviceConfig;

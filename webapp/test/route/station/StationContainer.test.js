@@ -47,8 +47,7 @@ describe('StationContainer component', () => {
         });
 
         test('it should send a request to load expected arrivals', () => {
-            expect(stubService.calledWith(stationConfig.stationId,
-                stationConfig.directionId, stationConfig.lines)).toBeTruthy();
+            expect(stubService.calledWith(stationConfig)).toBeTruthy();
         });
 
         describe('Given the server request was successful', () => {

@@ -11,9 +11,11 @@ describe('TfLDataAPIService service', () => {
     let fetchPromise;
     let fetchDataObj;
     let returnPromise;
-    const stationId = 'XESUEHR1234';
-    const directionId = 'outbound';
-    const lines = ['N40', 'northern'];
+    const params = {
+        stationId: 'XESUEHR1234',
+        directionId: 'outbound',
+        lines: ['N40', 'northern']
+    };
 
     beforeEach(() => {
         fetchPromise = new Promise((resolve, reject) => {
@@ -29,7 +31,7 @@ describe('TfLDataAPIService service', () => {
 
     describe('Given parameters then call to fetchData', () => {
         beforeEach(() => {
-            returnPromise = service.fetchArrivals(stationId, directionId, lines);
+            returnPromise = service.fetchArrivals(params);
         });
 
         test('Sends the right request to the server', () => {

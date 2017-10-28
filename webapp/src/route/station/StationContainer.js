@@ -7,8 +7,21 @@ import ArrivalTimeTable from './ArrivalTimeTable';
 import Loading from '../../common/Loading';
 import ErrorMessage from '../../common/ErrorMessage';
 import TfLDataAPIService from '../../services/TfLDataAPIService';
+import NationalRailAPIService from '../../services/NationalRailAPIService';
 
 import styles from './styles.scss';
+
+const services = {
+    tube: {
+        get: () => new TfLDataAPIService()
+    },
+    bus: {
+        get: () => new TfLDataAPIService()
+    },
+    train: {
+        get: () => new NationalRailAPIService()
+    }
+};
 
 const StationContainerState = {
     LOADING: {
@@ -35,9 +48,8 @@ class StationContainer extends Component {
     }
 
     componentDidMount() {
-        const service = new TfLDataAPIService();
-        service.fetchArrivals(this.props.config.stationId,
-            this.props.config.directionId, this.props.config.lines)
+        const service = services[this.props.config.type].get();
+        service.fetchArrivals(this.props.config)
             .then((arrivalTimes) => {
                 /* lot of discussions around whether setState should be called here or not :s */
                 /* eslint-disable react/no-did-mount-set-state */

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using System;
 
 namespace train
 {
@@ -7,6 +8,7 @@ namespace train
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Starting web host...");
             BuildWebHost(args).Run();
         }
 

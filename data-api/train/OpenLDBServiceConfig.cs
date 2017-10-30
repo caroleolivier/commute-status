@@ -1,4 +1,4 @@
-﻿namespace LDB
+﻿namespace train
 {
     public class OpenLDBServiceConfig
     {

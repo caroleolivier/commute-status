@@ -1,9 +1,9 @@
-﻿using LDB.Model;
+﻿using train.Model;
 using OpenLDBWS;
 using System;
 using System.Linq;
 
-namespace LDB.Helper
+namespace train.Helper
 {
     public static class ServiceDataConverterExtensions
     {

@@ -1,4 +1,4 @@
-﻿namespace LDB.Model
+﻿namespace train.Model
 {
     public sealed class ArrivalTime
     {

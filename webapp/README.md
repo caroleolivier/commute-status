@@ -1,6 +1,4 @@
-Frontend Web Application for Commute page
----
-[![Build Status](https://travis-ci.org/caroleolivier/commute-status.svg?branch=master)](https://travis-ci.org/caroleolivier/commute-status)
+# Frontend Web Application for Commute page
 
 Set up
 ---

@@ -1,5 +1,5 @@
-﻿using LDB.Helper;
-using LDB.Model;
+﻿using train.Helper;
+using train.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.Extensions.Options;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LDB.Controllers
+namespace train.Controllers
 {
     [Route(template: "api/live/arrivals")]
     [EnableCors("AllowAllOrigins")]

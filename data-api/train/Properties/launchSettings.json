@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "LDB": {
+    "train": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

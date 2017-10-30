@@ -1,5 +1,15 @@
-language: node_js
-node_js:
- - "node"
-before_install:
- - cd webapp
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "node"
+      before_install:
+        - cd webapp
+    - language: csharp
+      mono: none
+      dotnet: 2.0.0
+      before_install:
+        - cd data-api
+      script:
+        - dotnet restore
+        - dotnet build

@@ -10,7 +10,6 @@ matrix:
       dotnet: 2.0.0
       before_install:
         - cd data-api
-      install:
-        - dotnet restore
       script:
+        - dotnet restore
         - dotnet build

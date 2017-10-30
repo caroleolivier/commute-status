@@ -5,3 +5,11 @@ matrix:
         - "node"
       before_install:
         - cd webapp
+    - language: csharp
+      mono: none
+      dotnet: 2.0.0
+      script:
+        - dotnet restore
+        - dotnet build
+      before_install:
+        - cd data-api

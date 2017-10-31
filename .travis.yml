@@ -17,7 +17,5 @@ matrix:
         - dotnet restore
         - dotnet build
         - dotnet publish -o pack
-        - echo TRAVIS_BUILD_NUMBER
-        - echo $TRAVIS_BUILD_NUMBER
-        - echo ${TRAVIS_BUILD_NUMBER}
-        - docker build -t carole-commute-status:${TRAVIS_BUILD_NUMBER} .
+        - docker build -t carole-commute-status:$TRAVIS_BUILD_NUMBER .
+        - docker images

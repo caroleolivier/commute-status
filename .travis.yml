@@ -26,7 +26,6 @@ matrix:
         - dotnet restore
         - dotnet build
         - dotnet publish -o pack
-      after_success:
         - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PWD
         - docker build -t caroleo/commute-data-api:2.0.0.$COMMIT .
         - docker push caroleo/commute-data-api:2.0.0.$COMMIT

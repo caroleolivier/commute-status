@@ -1,6 +1,6 @@
 obj/
 bin/
-out/
+pack/
 .vs/
 *.suo
 *.ide

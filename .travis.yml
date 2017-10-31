@@ -15,7 +15,11 @@ matrix:
       env:
         - COMMIT=${TRAVIS_COMMIT::8}
         # DOCKER_EMAIL
-        - secure: ir44qiSE9OJ2UPcmQd8uTiCVawLV1mrRkWlxmyR771UGKFk9d+OiFdkrjAzcCzrI2FSjfRtCc/3xkLRo4YsZ1kNccRm7epktOr2Dyp/b9lI7Q5qGqZXXWFJ11d1pobSKRDm5kWYc5F0nycPOaWQmqMV/YEftOcAlolOr7QNtetoFn79dzWgnP10O9CXDVv9vd5m/19EGgStWLnr+oZYWR9CGdfHWGlRIJGBRw8SwMYxVnFv0s2kp5LceXzQWRcxpKpgQGSLu8r9aKQHen2aGGhLf+o2CVwBsQ4eYkhnTeBg1jbNVWP/6qOvI+lsU6F4y4nzZcW3ihiFJj71djr0/+0/TeUnI3SVMI09iJnS7MLkKPysKHrmrhZ7GNEwy/J6+O/cM5sV4thzdLmAgX2Y3VBPEPfcx6ZrXyJz25U+gloAtNpnvd0R0wtErDL5C6FmpgyDJgTfhjOnKH4x5zZk7k2EPGdFMxtQ28HhtHbqmKrxUnsieoD58T13TX1zChQI10NjvBnsJd6T5bs7cXmXyxjy2QETYc+HQeL5bCWZCJwkTNOb2/6CC60NnoYCDwX2uVJrKqzN5UVxYwMrhGZJHzxV206kmiCxnuu0Od00/LD1I6mVD9MPmoJ6ofFixJw+DmjRr/ihvP04tg6LSFhnFhhODZ8SSvxgrknPIxUY0EOw=
+        - secure: "ir44qiSE9OJ2UPcmQd8uTiCVawLV1mrRkWlxmyR771UGKFk9d+OiFdkrjAzcCzrI2FSjfRtCc/3xkLRo4YsZ1kNccRm7epktOr2Dyp/b9lI7Q5qGqZXXWFJ11d1pobSKRDm5kWYc5F0nycPOaWQmqMV/YEftOcAlolOr7QNtetoFn79dzWgnP10O9CXDVv9vd5m/19EGgStWLnr+oZYWR9CGdfHWGlRIJGBRw8SwMYxVnFv0s2kp5LceXzQWRcxpKpgQGSLu8r9aKQHen2aGGhLf+o2CVwBsQ4eYkhnTeBg1jbNVWP/6qOvI+lsU6F4y4nzZcW3ihiFJj71djr0/+0/TeUnI3SVMI09iJnS7MLkKPysKHrmrhZ7GNEwy/J6+O/cM5sV4thzdLmAgX2Y3VBPEPfcx6ZrXyJz25U+gloAtNpnvd0R0wtErDL5C6FmpgyDJgTfhjOnKH4x5zZk7k2EPGdFMxtQ28HhtHbqmKrxUnsieoD58T13TX1zChQI10NjvBnsJd6T5bs7cXmXyxjy2QETYc+HQeL5bCWZCJwkTNOb2/6CC60NnoYCDwX2uVJrKqzN5UVxYwMrhGZJHzxV206kmiCxnuu0Od00/LD1I6mVD9MPmoJ6ofFixJw+DmjRr/ihvP04tg6LSFhnFhhODZ8SSvxgrknPIxUY0EOw="
+        # DOCKER_USER
+        - secure: "Tmm/PeeMNFG0+rHwHt8K5kCdiUHlk9OIxzgD40rbjdS8YRR/OP0qUPy81b7wTca1DJFUxfV/t29evmg2X0p8fzxrDfKHRz16nKQwHRmcnsIhBLlutCTlfYXHRVP9EZLz4Bb2IAaAVEKBfnkvU9vkO4o9lw6m9ASKTJdV28cs2sb6pQ4aRJZbQQSOd+FUtxPfYtlU9MbH20lEpiZtbCh/mZitj1nNX/pXoKxlL5Fa1DMmr8lK+sXCea5VC/zJhxm276lMWfJfTajUVEl+5KR1LSkClPvuBbNZHsRzwz5fsMGi01RoW+/iGz0HP0alouZ8qJ1IQEpcHNLreGjJXdKQy+18GOAgP39tzlFzmjC2mSBZYRlWWpGsxZprX2CyGBNDGRzAHs3U2RoD+akyOTMjIMaFql6Nl6owNWkGpTkQ0zuM+YXypbt0mZfjwqwb5tJDl2pEPL9aBBH1bPgVtETVZ7wipr8MXVMn8os+gKBHcCD9uLg6OFpSKiFBDHThxYwpTuvvO7zxj8+ufX0V3pmPqzm7WL2T4f2oB8lQ45Qf9kl9D4F75Hgw+Ekr9PW2acytqql5LP+fwklZ5Z/G+ZKOv9E2OC0aNE0vhWhSlFZk0HoF2sX5vyj+fPI86/fTz3IMGz0cdMTN2znLL5n+P2elFxcnrokaf25qdbbjCHxlA+E="
+        # DOCKER_PWD
+        - secure: "bujn6fh1KeFqGY02/hjN0k4Q5VtygtlR1ms5IFzKH/mZkdxuqBhlMBWORJFskxQg5EqjvD3pIhAst89BHmrfnua7qJL9pnG5WzCf5umfd1mH817aAYi+2cFad52bRQA8FqBaGZ+TN3l7OcwLgrWnod0vuDlYqpI8LaFW8w7H5ssrElDDNKiU3gizufGyB5tB3x0c07G6btmCUdvqxJZRxO8rpIrflU3YJ5LuIb8uhhIAg0dPt8kmutS/BrTiY8bTBaxfY9O1P8r/zzqXlPQZbMZaiivk1/ErRe7CD/VVuen00WXKJQ5Ii7tYXj5v4wGiedkavD8nMCbD8eKnGi/vDHOkfcc+ossKyh/bXh4buubTwcP4M1gVoe+tx78fqRZ3ATJQ8QGQmib1D7jTHIv3lVrPx1x0zAhTM4tfofXyAS+yQUqJrltwQ3IVyh2Tul7wX5YWlJmU+x69A7HIJ1aSQOh3584LnRV9HiO4S7AC6IkXtmUjAMdf8qh8Fh5x7LR3mjjliiJ/m5Q+a7DEMjBLtvQcYr0xvRAFw0cI/WZxXveBEIJjP+qfP8zDxLM6siVGUlfo7Df80amXGhKc1e2djwaHv3IugPBImxWESqXQXZb1tdItg1CgdkeFxDrRLeOjMfTnmMpuzmlfdp4hRPsaBIBy2vvUIRfTKUnzdTR+PHc="
       before_install:
         - cd data-api
       script:
@@ -23,9 +27,6 @@ matrix:
         - dotnet build
         - dotnet publish -o pack
       after_success:
-        #- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+        - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PWD
         - docker build -t caroleo/commute-data-api:2.0.0.$COMMIT .
-        - echo "hello "
-        - echo $DOCKER_EMAIL
-        - echo "voila"
-        #- docker push caroleo/commute-data-api:2.0.0.$COMMIT
+        - docker push caroleo/commute-data-api:2.0.0.$COMMIT

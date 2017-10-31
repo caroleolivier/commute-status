@@ -12,15 +12,11 @@ namespace train
         public Startup(IHostingEnvironment env)
         {
             Console.WriteLine("Building configuration...");
+            var configPath = Environment.GetEnvironmentVariable("SENSITIVE_DATA_PATH");
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
-                .AddEnvironmentVariables();
-            if (env.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
-
+                .AddJsonFile(configPath);
             Configuration = builder.Build();
         }
 

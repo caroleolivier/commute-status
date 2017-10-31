@@ -12,11 +12,10 @@ matrix:
         - docker
       mono: none
       dotnet: 2.0.0
-      - env:
-        global:
-          - COMMIT=${TRAVIS_COMMIT::8}
-          # DOCKER_EMAIL
-          - secure: ir44qiSE9OJ2UPcmQd8uTiCVawLV1mrRkWlxmyR771UGKFk9d+OiFdkrjAzcCzrI2FSjfRtCc/3xkLRo4YsZ1kNccRm7epktOr2Dyp/b9lI7Q5qGqZXXWFJ11d1pobSKRDm5kWYc5F0nycPOaWQmqMV/YEftOcAlolOr7QNtetoFn79dzWgnP10O9CXDVv9vd5m/19EGgStWLnr+oZYWR9CGdfHWGlRIJGBRw8SwMYxVnFv0s2kp5LceXzQWRcxpKpgQGSLu8r9aKQHen2aGGhLf+o2CVwBsQ4eYkhnTeBg1jbNVWP/6qOvI+lsU6F4y4nzZcW3ihiFJj71djr0/+0/TeUnI3SVMI09iJnS7MLkKPysKHrmrhZ7GNEwy/J6+O/cM5sV4thzdLmAgX2Y3VBPEPfcx6ZrXyJz25U+gloAtNpnvd0R0wtErDL5C6FmpgyDJgTfhjOnKH4x5zZk7k2EPGdFMxtQ28HhtHbqmKrxUnsieoD58T13TX1zChQI10NjvBnsJd6T5bs7cXmXyxjy2QETYc+HQeL5bCWZCJwkTNOb2/6CC60NnoYCDwX2uVJrKqzN5UVxYwMrhGZJHzxV206kmiCxnuu0Od00/LD1I6mVD9MPmoJ6ofFixJw+DmjRr/ihvP04tg6LSFhnFhhODZ8SSvxgrknPIxUY0EOw=
+      env:
+        - COMMIT=${TRAVIS_COMMIT::8}
+        # DOCKER_EMAIL
+        - secure: ir44qiSE9OJ2UPcmQd8uTiCVawLV1mrRkWlxmyR771UGKFk9d+OiFdkrjAzcCzrI2FSjfRtCc/3xkLRo4YsZ1kNccRm7epktOr2Dyp/b9lI7Q5qGqZXXWFJ11d1pobSKRDm5kWYc5F0nycPOaWQmqMV/YEftOcAlolOr7QNtetoFn79dzWgnP10O9CXDVv9vd5m/19EGgStWLnr+oZYWR9CGdfHWGlRIJGBRw8SwMYxVnFv0s2kp5LceXzQWRcxpKpgQGSLu8r9aKQHen2aGGhLf+o2CVwBsQ4eYkhnTeBg1jbNVWP/6qOvI+lsU6F4y4nzZcW3ihiFJj71djr0/+0/TeUnI3SVMI09iJnS7MLkKPysKHrmrhZ7GNEwy/J6+O/cM5sV4thzdLmAgX2Y3VBPEPfcx6ZrXyJz25U+gloAtNpnvd0R0wtErDL5C6FmpgyDJgTfhjOnKH4x5zZk7k2EPGdFMxtQ28HhtHbqmKrxUnsieoD58T13TX1zChQI10NjvBnsJd6T5bs7cXmXyxjy2QETYc+HQeL5bCWZCJwkTNOb2/6CC60NnoYCDwX2uVJrKqzN5UVxYwMrhGZJHzxV206kmiCxnuu0Od00/LD1I6mVD9MPmoJ6ofFixJw+DmjRr/ihvP04tg6LSFhnFhhODZ8SSvxgrknPIxUY0EOw=
       before_install:
         - cd data-api
       script:

@@ -18,7 +18,7 @@ Run
 cd train
 dotnet run
 ```
-Modify the environment variable SENSITIVE\_DATA\_PATH in [./train/Properties/launchSettings.json](/train/Properties/launchSettings.json) if needed.
+Modify the environment variable SENSITIVE\_DATA\_PATH in [launchSettings.json](train/Properties/launchSettings.json) if needed.
 
 Dockerize
 ---

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace train
 {
@@ -10,11 +11,12 @@ namespace train
     {
         public Startup(IHostingEnvironment env)
         {
+            Console.WriteLine("Building configuration...");
+            var configPath = Environment.GetEnvironmentVariable("SENSITIVE_DATA_PATH");
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
-                .AddUserSecrets<Startup>();
-
+                .AddJsonFile(configPath);
             Configuration = builder.Build();
         }
 
@@ -23,6 +25,7 @@ namespace train
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Console.WriteLine("Configuring services...");
             services.AddOptions();
             services.Configure<OpenLDBServiceConfig>(Configuration.GetSection("OpenLDBService"));
             services.AddCors(options =>
@@ -35,6 +38,7 @@ namespace train
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            Console.WriteLine("Configuring the app...");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

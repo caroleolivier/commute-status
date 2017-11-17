@@ -1,6 +1,6 @@
 import ArrivalTime from './ArrivalTime';
 
-export default class TflDataParser {
+export default class TfLDataParser {
     parse(json: any[]): ArrivalTime[] {
         return json.map((arrival) => {
             const lineName: string = arrival.lineName;

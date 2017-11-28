@@ -36,8 +36,8 @@ const config = {
                     type: 'train',
                     stationName: 'Earlsfield',
                     stationId: 'EAD',
-                    destinationId: 'WAT',
-                    filterDirection: 'to'
+                    filterDirection: 'to',
+                    destinationId: 'WAT'
                 },
                 {
                     type: 'tube',
@@ -65,10 +65,9 @@ const config = {
                 {
                     type: 'train',
                     stationName: 'Waterloo',
-                    stationId: '',
-                    direction: '',
-                    directionId: '',
-                    lines: ['']
+                    stationId: 'EAD',
+                    filterDirection: 'from',
+                    destinationId: 'WAT'
                 },
                 {
                     type: 'bus',

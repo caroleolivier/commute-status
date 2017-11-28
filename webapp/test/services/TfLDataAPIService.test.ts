@@ -1,28 +1,28 @@
-/* eslint-env browser, jest */
-import sinon from 'sinon';
+import 'jest';
 import 'whatwg-fetch';
+import * as sinon from 'sinon';
 
 import ArrivalTime from '../../src/services/ArrivalTime';
-import TfLDataAPIService from '../../src/services/TfLDataAPIService';
+import TfLDataAPIService, { TfLStationArrivalInput } from '../../src/services/TfLDataAPIService';
 
 describe('TfLDataAPIService service', () => {
-    let service;
-    let fetchStub;
-    let fetchPromise;
+    let service: TfLDataAPIService;
+    let fetchStub: sinon.SinonStub;
+    let fetchPromise: Promise<Response>;
     let fetchDataObj;
-    let returnPromise;
-    const params = {
+    let returnPromise: Promise<ArrivalTime[]>;
+    const params: TfLStationArrivalInput = {
         stationId: 'XESUEHR1234',
         directionId: 'outbound',
         lines: ['N40', 'northern']
     };
 
     beforeEach(() => {
-        fetchPromise = new Promise((resolve, reject) => {
+        fetchPromise = new Promise<Response>((resolve, reject) => {
             fetchDataObj = { resolve, reject };
         });
-        fetchStub = sinon.stub(global, 'fetch').returns(fetchPromise);
         service = new TfLDataAPIService();
+        fetchStub = sinon.stub(service.fetchService, 'fetch').returns(fetchPromise);
     });
 
     afterEach(() => {
@@ -58,12 +58,7 @@ describe('TfLDataAPIService service', () => {
                         new ArrivalTime('1', 'one', 30),
                         new ArrivalTime('2', 'two', 90)
                     ];
-                    const resp = new window.Response(JSON.stringify(data), {
-                        status: 200,
-                        headers: {
-                            'Content-type': 'application/json'
-                        }
-                    });
+                    const resp = new Response(JSON.stringify(data));
                     fetchDataObj.resolve(resp);
                     return returnPromise.then((arrivals) => {
                         expect(arrivals).toEqual(expectedData);
@@ -74,12 +69,7 @@ describe('TfLDataAPIService service', () => {
             describe('Given the return data is incorrect', () => {
                 test('it throws an exception', () => {
                     const malformattedData = { bla: 'I am not well formatted' };
-                    const resp = new window.Response(JSON.stringify(malformattedData), {
-                        status: 200,
-                        headers: {
-                            'Content-type': 'application/json'
-                        }
-                    });
+                    const resp = new Response(JSON.stringify(malformattedData));
                     fetchDataObj.resolve(resp);
                     return returnPromise
                         .then(() => {

@@ -6,7 +6,7 @@ import StationHeader from './StationHeader';
 import ArrivalTimeTable from './ArrivalTimeTable';
 import Loading from '../../common/Loading';
 import ErrorMessage from '../../common/ErrorMessage';
-import TfLDataAPIService from '../../services/TfLDataAPIService';
+import TfLDataAPIService from '../../services/TfLDataAPIService.ts';
 import NationalRailAPIService from '../../services/NationalRailAPIService';
 
 import styles from './styles.scss';

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import sinon from 'sinon';
 
-import TfLDataAPIService from '../../../src/services/TfLDataAPIService';
+import TfLDataAPIService from '../../../src/services/TfLDataAPIService.ts';
 
 import StationContainer, { StationContainerState } from '../../../src/route/station/StationContainer';
 

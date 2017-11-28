@@ -16,9 +16,14 @@ module.exports = {
             {
                 test: /\.ts$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'ts-loader'
-                }
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    },
+                    {
+                        loader: 'ts-loader'
+                    }
+                ]
             },
             {
                 test: /\.js$/,
@@ -55,7 +60,8 @@ module.exports = {
     resolve: {
         modules: [
             path.join(__dirname, 'node_modules')
-        ]
+        ],
+        extensions: ['.js', '.json', '.ts', '.tsx']
     }
 };
 

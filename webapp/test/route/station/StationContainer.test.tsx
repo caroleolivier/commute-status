@@ -1,23 +1,21 @@
-/* eslint-env browser, jest */
-import React from 'react';
+import 'jest';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import sinon from 'sinon';
+import * as sinon from 'sinon';
 
-import TfLDataAPIService from '../../../src/services/TfLDataAPIService.ts';
+import { TfLDataAPIService } from '../../../src/services/TfLDataAPIService';
 
-import StationContainer, { StationContainerState } from '../../../src/route/station/StationContainer';
+import { StationContainer, IStationContainerConfig, stationContainerStates } from '../../../src/route/station/StationContainer';
 
 describe('StationContainer component', () => {
     let stubService;
 
-    const stationConfig = {
+    const stationConfig: IStationContainerConfig = {
         type: 'bus',
         stationName: 'Waterloo',
         stationId: '1234DWWEF',
-        direction: 'North',
-        directionId: 'outbound',
-        lines: ['jubilee']
+        travelDirection: 'Richmond'
     };
     let stationContainer;
     let fetchDataObj;
@@ -41,7 +39,7 @@ describe('StationContainer component', () => {
         });
 
         test('it displays a loading state', () => {
-            expect(stationContainer.instance().state.state).toEqual(StationContainerState.LOADING);
+            expect(stationContainer.instance().state.state).toEqual(stationContainerStates.get('LOADING'));
             const tree = toJson(stationContainer);
             expect(tree).toMatchSnapshot('loading');
         });
@@ -62,7 +60,7 @@ describe('StationContainer component', () => {
                 return promise.then(() => {
                     // force wrapper to update
                     stationContainer.update();
-                    expect(stationContainer.instance().state.state).toEqual(StationContainerState.LOADED);
+                    expect(stationContainer.instance().state.state).toEqual(stationContainerStates.get('LOADED'));
                     const tree = toJson(stationContainer);
                     expect(tree).toMatchSnapshot('loaded');
                 });
@@ -80,7 +78,7 @@ describe('StationContainer component', () => {
                     .catch(() => {
                         // force wrapper to update
                         stationContainer.update();
-                        expect(stationContainer.instance().state.state).toEqual(StationContainerState.ERROR);
+                        expect(stationContainer.instance().state.state).toEqual(stationContainerStates.get('ERROR'));
                         const tree = toJson(stationContainer);
                         expect(tree).toMatchSnapshot('error');
                     });

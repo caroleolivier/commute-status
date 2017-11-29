@@ -22,7 +22,6 @@ const services: Map<string, IDataApiServiceMapper> = new Map<string, IDataApiSer
     ['train', { get: () => new NationalRailAPIService() }]
 ]);
 
-
 export const stationContainerStates: Map<string, IStationContainerStateItem> = new Map<string, IStationContainerStateItem>([
     ["LOADING", {
         id: 0,
@@ -38,9 +37,10 @@ export const stationContainerStates: Map<string, IStationContainerStateItem> = n
     }]
 ]);
 
-interface IStationContainerConfig {
+export interface IStationContainerConfig {
     type: string;
     stationName: string;
+    stationId: string,
     travelDirection: string;
 }
 

@@ -5,8 +5,9 @@ exports[`error 1`] = `
   className="container"
 >
   <StationHeader
-    name="Waterloo"
-    type="bus"
+    direction="Richmond"
+    stationName="Waterloo"
+    transportType="bus"
   />
   <ErrorMessage
     message="Unable to load data"
@@ -19,8 +20,9 @@ exports[`loaded 1`] = `
   className="container"
 >
   <StationHeader
-    name="Waterloo"
-    type="bus"
+    direction="Richmond"
+    stationName="Waterloo"
+    transportType="bus"
   />
   <ArrivalTimeTable
     arrivals={
@@ -51,8 +53,9 @@ exports[`loading 1`] = `
   className="container"
 >
   <StationHeader
-    name="Waterloo"
-    type="bus"
+    direction="Richmond"
+    stationName="Waterloo"
+    transportType="bus"
   />
   <Loading />
 </div>

@@ -2,8 +2,8 @@ import 'jest';
 import 'whatwg-fetch';
 import * as sinon from 'sinon';
 
-import ArrivalTime from '../../src/services/ArrivalTime';
-import TfLDataAPIService, { TfLStationArrivalInput } from '../../src/services/TfLDataAPIService';
+import { ArrivalTime } from '../../src/services/ArrivalTime';
+import { TfLDataAPIService, TfLStationArrivalInput } from '../../src/services/TfLDataAPIService';
 
 describe('TfLDataAPIService service', () => {
     let service: TfLDataAPIService;

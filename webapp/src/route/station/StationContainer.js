@@ -2,7 +2,7 @@ import 'whatwg-fetch';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import StationHeader from './StationHeader';
+import { StationHeader } from './StationHeader.tsx';
 import ArrivalTimeTable from './ArrivalTimeTable';
 import Loading from '../../common/Loading';
 import ErrorMessage from '../../common/ErrorMessage';
@@ -71,8 +71,9 @@ class StationContainer extends Component {
         return (
             <div className={styles.container}>
                 <StationHeader
-                    name={this.props.config.stationName}
-                    type={this.props.config.type}
+                    stationName={this.props.config.stationName}
+                    direction={this.props.config.travelDirection}
+                    transportType={this.props.config.type}
                 />
                 {this.state.state.getComponent(this)}
             </div>
@@ -84,6 +85,7 @@ StationContainer.propTypes = {
     config: PropTypes.shape({
         type: PropTypes.string,
         stationName: PropTypes.string,
+        travelDirection: PropTypes.string,
         stationId: PropTypes.string,
         direction: PropTypes.string,
         directionId: PropTypes.string,

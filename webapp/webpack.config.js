@@ -14,7 +14,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts$/,
+                test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: [
                     {
@@ -39,9 +39,11 @@ module.exports = {
                         loader: 'style-loader'
                     },
                     {
-                        loader: 'css-loader',
+                        loader: 'typings-for-css-modules-loader',
                         options: {
                             modules: true,
+                            camelCase: true,
+                            namedExport: true,
                             localIdentName: '[path][name]__[local]--[hash:base64:5]'
                         }
                     },
@@ -61,7 +63,7 @@ module.exports = {
         modules: [
             path.join(__dirname, 'node_modules')
         ],
-        extensions: ['.js', '.json', '.ts', '.tsx']
+        extensions: ['.js', '.json', '.ts', '.tsx', '.css', '.scss']
     }
 };
 

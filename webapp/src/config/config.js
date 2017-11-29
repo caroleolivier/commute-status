@@ -6,6 +6,7 @@ const config = {
                 {
                     type: 'bus',
                     stationName: 'Wimbledon Road',
+                    travelDirection: 'Tooting Broadway',
                     stationId: '490008430E',
                     direction: 'Tooting Broadway',
                     directionId: 'outbound',
@@ -14,6 +15,7 @@ const config = {
                 {
                     type: 'tube',
                     stationName: 'Tooting Broadway',
+                    travelDirection: 'Central London',
                     stationId: '940GZZLUTBY',
                     direction: 'Central London',
                     directionId: 'outbound',
@@ -27,6 +29,7 @@ const config = {
                 {
                     type: 'bus',
                     stationName: 'Huntspill Street',
+                    travelDirection: 'Earlsfield',
                     stationId: '490008430W',
                     direction: 'Earlsfield',
                     directionId: 'inbound',
@@ -35,6 +38,7 @@ const config = {
                 {
                     type: 'train',
                     stationName: 'Earlsfield',
+                    travelDirection: 'Waterloo',
                     stationId: 'EAD',
                     filterDirection: 'to',
                     destinationId: 'WAT'
@@ -42,6 +46,7 @@ const config = {
                 {
                     type: 'tube',
                     stationName: 'Waterloo',
+                    travelDirection: 'Bank',
                     stationId: '940GZZLUWLO',
                     direction: 'Bank',
                     directionId: 'outbound',
@@ -57,6 +62,7 @@ const config = {
                 {
                     type: 'tube',
                     stationName: 'Bank',
+                    travelDirection: 'Waterloo',
                     stationId: '940GZZLUBNK',
                     direction: 'Waterloo',
                     directionId: 'inbound',
@@ -65,6 +71,7 @@ const config = {
                 {
                     type: 'train',
                     stationName: 'Waterloo',
+                    travelDirection: 'Earlsfield',
                     stationId: 'EAD',
                     filterDirection: 'from',
                     destinationId: 'WAT'
@@ -72,6 +79,7 @@ const config = {
                 {
                     type: 'bus',
                     stationName: 'Earlsfield',
+                    travelDirection: 'Huntspill Street',
                     stationId: '490006306D',
                     direction: 'Tooting Broadway',
                     directionId: 'outbound',
@@ -85,6 +93,7 @@ const config = {
                 {
                     type: 'tube',
                     stationName: 'Bank',
+                    travelDirection: 'Tooting Broadway',
                     stationId: '940GZZLUBNK',
                     direction: 'Tooting Broadway',
                     directionId: 'inbound',
@@ -93,6 +102,7 @@ const config = {
                 {
                     type: 'bus',
                     stationName: 'Tooting Broadway',
+                    travelDirection: 'Huntspill Street',
                     stationId: '490000234H',
                     direction: 'Earlsfield',
                     directionId: 'inbound',

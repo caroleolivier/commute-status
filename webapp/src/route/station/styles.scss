@@ -13,6 +13,10 @@ $lineHeight: 2em;
     color: #ff4040;
 }
 
+.trainIcon {
+    color: grey;
+}
+
 .header {
     line-height: $lineHeight;
     padding: 10px 0em;
@@ -20,6 +24,11 @@ $lineHeight: 2em;
     h3 {
         margin: 0px;
     }
+}
+
+.arrow {
+    padding: 0 1.2em;
+    line-height: 2em;
 }
 
 .container {

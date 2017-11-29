@@ -2,9 +2,11 @@
     "compilerOptions": {
         "allowJs": true,
         "jsx": "react",
-        "target": "es2015"
+        "target": "es2015",
+        "outDir": "tsc-out"
     },
     "include": [
-        "src/**/*.ts"
+        "src/**/*.ts",
+        "src/**/*.tsx"
     ]
 }

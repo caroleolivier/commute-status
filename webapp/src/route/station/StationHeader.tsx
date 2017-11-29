@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as styles from './styles.scss';
+import * as styles from './StationHeader.scss';
 
 interface ICssMapper {
     getClass(): string

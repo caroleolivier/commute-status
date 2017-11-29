@@ -1,0 +1,32 @@
+$lineHeight: 2em;
+
+.icon {
+    font-size: $lineHeight;
+    padding: 0px 10px 0px 0px;
+}
+
+.tubeIcon {
+    color: #3375ff;
+}
+
+.busIcon {
+    color: #ff4040;
+}
+
+.trainIcon {
+    color: grey;
+}
+
+.arrow {
+    padding: 0 1.2em;
+    line-height: 2em;
+}
+
+.header {
+    line-height: $lineHeight;
+    padding: 10px 0em;
+
+    h3 {
+        margin: 0px;
+    }
+}

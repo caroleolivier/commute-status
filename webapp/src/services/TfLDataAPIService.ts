@@ -1,5 +1,6 @@
-import TfLDataParser from './TfLDataParser';
-import ArrivalTime from './ArrivalTime';
+import { TfLDataParser } from './TfLDataParser';
+import { ArrivalTime } from './ArrivalTime';
+import { IDataAPIService } from './IDataApiService';
 
 export interface TfLStationArrivalInput {
     stationId: string,
@@ -11,7 +12,7 @@ export interface FetchFacade {
     fetch(input: RequestInfo, init?: RequestInit): Promise<Response>;
 }
 
-export default class TfLDataAPIService {
+export class TfLDataAPIService implements IDataAPIService {
     parser: TfLDataParser;
     fetchService: FetchFacade;
 

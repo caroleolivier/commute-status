@@ -7,7 +7,8 @@ import styles from './styles.scss';
 class ArrivalTimeTable extends Component {
     render() {
         const rows = [];
-        for (let i = 0; i < this.props.arrivals.length; i += 1) {
+        const sortedArrivals = this.props.arrivals.sort((a, b) => (a.expectedSeconds > b.expectedSeconds ? 1 : -1));
+        for (let i = 0; i < sortedArrivals.length; i += 1) {
             const arrival = this.props.arrivals[i];
             const key = `${arrival.expectedSeconds}${arrival.lineName}`;
             rows.push(

@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
         "jsx": "react",
-        "target": "es2015",
-        "outDir": "tsc-out"
+        "noImplicitAny": true,
+        "outDir": "tsc-out",
+        "target": "es2015"
     },
     "include": [
         "src/**/*.ts",

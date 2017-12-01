@@ -1,13 +1,8 @@
 import * as React from 'react';
 
+import { ICommuteRoutesConfig } from '../config/configtype';
 import { Header } from './Header';
-import { CommuteRoute, ICommuteRouteConfig } from './CommuteRoute';
-
-
-interface ICommuteRoutesConfig {
-    name: string;
-    routes: ICommuteRouteConfig[];
-}
+import { CommuteRoute } from './CommuteRoute';
 
 interface ICommuteRoutesProps {
     config: ICommuteRoutesConfig;

@@ -9,7 +9,7 @@ describe('TfLDataAPIService service', () => {
     let service: TfLDataAPIService;
     let fetchStub: sinon.SinonStub;
     let fetchPromise: Promise<Response>;
-    let fetchDataObj;
+    let fetchDataObj: {resolve: (resp: Response) => void, reject: (reason: any) => void};
     let returnPromise: Promise<ArrivalTime[]>;
     const params: TfLStationArrivalInput = {
         stationId: 'XESUEHR1234',

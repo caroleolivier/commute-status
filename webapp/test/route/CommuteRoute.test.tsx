@@ -3,7 +3,8 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import { CommuteRoute, ICommuteRouteConfig } from '../../src/route/CommuteRoute';
+import { ICommuteRouteConfig } from '../../src/config/configtype';
+import { CommuteRoute } from '../../src/route/CommuteRoute';
 
 describe('CommuteRoute', () => {
     describe('Given route name and a list of stops', () => {

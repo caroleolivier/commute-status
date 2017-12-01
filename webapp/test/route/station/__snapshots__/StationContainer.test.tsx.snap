@@ -28,19 +28,19 @@ exports[`loaded 1`] = `
     arrivals={
       Array [
         Object {
+          "destinationName": "Waterloo",
+          "expectedSeconds": 60,
           "lineName": "10",
-          "stationName": "Waterloo",
-          "timeToStation": 60,
         },
         Object {
+          "destinationName": "Waterloo",
+          "expectedSeconds": 90,
           "lineName": "10",
-          "stationName": "Waterloo",
-          "timeToStation": 90,
         },
         Object {
+          "destinationName": "Waterloo",
+          "expectedSeconds": 30,
           "lineName": "20",
-          "stationName": "Waterloo",
-          "timeToStation": 30,
         },
       ]
     }

@@ -1,15 +1,16 @@
 import 'jest';
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import * as sinon from 'sinon';
 
 import { TfLDataAPIService } from '../../../src/services/TfLDataAPIService';
-
-import { StationContainer, IStationContainerConfig, stationContainerStates } from '../../../src/route/station/StationContainer';
+import { ArrivalTime } from '../../../src/services/ArrivalTime';
+import { IStationContainerConfig } from '../../../src/config/configtype';
+import { StationContainer, IStationContainerProps, IStationContainerState, stationContainerStates } from '../../../src/route/station/StationContainer';
 
 describe('StationContainer component', () => {
-    let stubService;
+    let stubService: sinon.SinonStub;
 
     const stationConfig: IStationContainerConfig = {
         type: 'bus',
@@ -17,14 +18,16 @@ describe('StationContainer component', () => {
         stationId: '1234DWWEF',
         travelDirection: 'Richmond'
     };
-    let stationContainer;
-    let fetchDataObj;
-    let promise;
+    let stationContainer: ShallowWrapper<IStationContainerProps, IStationContainerState>;
+    
+    let fetchDataObj: {resolve: (arrivals: ArrivalTime[]) => void, reject: (reason: any) => void};
+    let promise: Promise<ArrivalTime[]>;
 
     beforeEach(() => {
-        promise = new Promise((resolve, reject) => {
+        promise = new Promise<ArrivalTime[]>((resolve, reject) => {
             fetchDataObj = { resolve, reject };
         });
+        
         stubService = sinon.stub(TfLDataAPIService.prototype, 'fetchArrivals');
         stubService.returns(promise);
     });
@@ -50,10 +53,10 @@ describe('StationContainer component', () => {
 
         describe('Given the server request was successful', () => {
             test('it should load the expected time arrivals', () => {
-                const arrivals = [
-                    { lineName: '10', stationName: 'Waterloo', timeToStation: 60 },
-                    { lineName: '10', stationName: 'Waterloo', timeToStation: 90 },
-                    { lineName: '20', stationName: 'Waterloo', timeToStation: 30 }
+                const arrivals: ArrivalTime[] = [
+                    { lineName: '10', destinationName: 'Waterloo', expectedSeconds: 60 },
+                    { lineName: '10', destinationName: 'Waterloo', expectedSeconds: 90 },
+                    { lineName: '20', destinationName: 'Waterloo', expectedSeconds: 30 }
                 ];
                 fetchDataObj.resolve(arrivals);
 

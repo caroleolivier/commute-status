@@ -1,12 +1,8 @@
 import * as React from 'react';
 
-import { StationContainer, IStationContainerConfig } from './station/StationContainer';
+import { ICommuteRouteConfig } from '../config/configtype';
+import { StationContainer } from './station/StationContainer';
 import * as styles from './CommuteRoute.scss';
-
-export interface ICommuteRouteConfig {
-    routeName: string;
-    stops: IStationContainerConfig[];
-}
 
 interface ICommuteRouteProps {
     config: ICommuteRouteConfig;

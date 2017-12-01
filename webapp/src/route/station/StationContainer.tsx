@@ -1,6 +1,7 @@
 import 'whatwg-fetch';
 import * as React from 'react';
 
+import { IStationContainerConfig } from '../../config/configtype';
 import { ArrivalTime } from '../../services/ArrivalTime';
 import { StationHeader } from './StationHeader';
 import { ArrivalTimeTable } from './arrivals/ArrivalTimeTable';
@@ -37,18 +38,11 @@ export const stationContainerStates: Map<string, IStationContainerStateItem> = n
     }]
 ]);
 
-export interface IStationContainerConfig {
-    type: string;
-    stationName: string;
-    stationId: string,
-    travelDirection: string;
-}
-
-interface IStationContainerProps {
+export interface IStationContainerProps {
     config: IStationContainerConfig;
 }
 
-interface IStationContainerState {
+export interface IStationContainerState {
     state: IStationContainerStateItem;
     expectedTimes: ArrivalTime[];
 }
@@ -59,7 +53,7 @@ interface IStationContainerStateItem {
 }
 
 export class StationContainer extends React.Component<IStationContainerProps, IStationContainerState> {
-    constructor(props) {
+    constructor(props: IStationContainerProps) {
         super(props);
         const initialState: Readonly<IStationContainerState> = {
             state: stationContainerStates.get('LOADING'),

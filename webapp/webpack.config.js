@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     context: path.join(__dirname, 'src'),
     entry: [
-        'whatwg-fetch', './main.js'
+        'whatwg-fetch', './main.ts'
     ],
     output: {
         path: path.join(__dirname, 'www'),

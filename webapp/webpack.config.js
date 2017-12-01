@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     context: path.join(__dirname, 'src'),
     entry: [
-        'whatwg-fetch', './main.js'
+        'whatwg-fetch', './main.ts'
     ],
     output: {
         path: path.join(__dirname, 'www'),
@@ -13,6 +13,18 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    },
+                    {
+                        loader: 'ts-loader'
+                    }
+                ]
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -27,9 +39,11 @@ module.exports = {
                         loader: 'style-loader'
                     },
                     {
-                        loader: 'css-loader',
+                        loader: 'typings-for-css-modules-loader',
                         options: {
                             modules: true,
+                            camelCase: true,
+                            namedExport: true,
                             localIdentName: '[path][name]__[local]--[hash:base64:5]'
                         }
                     },
@@ -48,7 +62,8 @@ module.exports = {
     resolve: {
         modules: [
             path.join(__dirname, 'node_modules')
-        ]
+        ],
+        extensions: ['.js', '.json', '.ts', '.tsx', '.css', '.scss']
     }
 };
 

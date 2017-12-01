@@ -13,33 +13,24 @@ exports[`routes 1`] = `
     <StationContainer
       config={
         Object {
-          "direction": "Saturne",
-          "directionId": "outbound",
-          "lines": Array [
-            "L1",
-            "L2",
-          ],
-          "stationId": "490008430E",
+          "stationId": "2erwerq",
           "stationName": "River",
+          "travelDirection": "Saturne",
           "type": "bus",
         }
       }
-      key="490008430E"
+      key="2erwerq"
     />
     <StationContainer
       config={
         Object {
-          "direction": "Mars",
-          "directionId": "inbound",
-          "lines": Array [
-            "N1",
-          ],
-          "stationId": "940GZZLUTBY",
+          "stationId": "qwerds",
           "stationName": "Sea",
+          "travelDirection": "Mars",
           "type": "tube",
         }
       }
-      key="940GZZLUTBY"
+      key="qwerds"
     />
   </div>
 </div>

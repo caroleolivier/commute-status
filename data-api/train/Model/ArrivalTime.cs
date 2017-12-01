@@ -2,29 +2,35 @@
 {
     public sealed class ArrivalTime
     {
-        public ArrivalTime(string atStationCode, string destinationCode, string lineName, int expectedSecs, string expectedTime)
+        public ArrivalTime(string stationCrs, string direction, string filterStationCrs, string destination, int expectedSecs, string expectedTime)
         {
-            AtStationCode = atStationCode;
-            DestinationCode = destinationCode;
-            LineName = lineName;
+            StationCrs = stationCrs;
+            Direction = direction;
+            FilterStationCrs = filterStationCrs;
+            Destination = destination;
             ExpectedSecs = expectedSecs;
             ExpectedTime = expectedTime;
         }
 
         /// <summary>
-        /// Station code we are interested in.
+        /// Station code to look up.
         /// </summary>
-        public string AtStationCode { get; }
+        public string StationCrs { get; }
 
         /// <summary>
-        /// Final destination code.
+        /// Direction between StationCode and FilterStationCode.
         /// </summary>
-        public string DestinationCode { get; }
+        public string Direction { get; }
 
         /// <summary>
-        /// The train operator for that train.
+        /// The station code to use for filtering.
         /// </summary>
-        public string LineName { get; }
+        public string FilterStationCrs { get; }
+
+        /// <summary>
+        /// The final destination of the train.
+        /// </summary>
+        public string Destination { get; }
 
         /// <summary>
         /// Expected arrival in Seconds.
